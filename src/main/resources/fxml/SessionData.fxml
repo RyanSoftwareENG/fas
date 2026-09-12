@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="750.0" prefWidth="950.0" style="-fx-background-color: #f8fafc;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.SessionDataController">
+    <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="65.0" spacing="15.0" style="-fx-background-color: #1e293b; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+            <padding>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+            </padding>
+            <children>
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #ffffff;" text="📋 السجل الشامل للجلسة رقم:">
+                    <font><Font size="18.0" /></font>
+                </Label>
+                <Label fx:id="lblSessionId" style="-fx-font-weight: bold; -fx-text-fill: #fbbf24;" text="#">
+                    <font><Font size="18.0" /></font>
+                </Label>
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #94a3b8; -fx-padding: 0 15 0 0;" text="|   العميل المرتبط:" HBox.hgrow="ALWAYS">
+                    <font><Font size="16.0" /></font>
+                </Label>
+                <Label fx:id="lblClientId" style="-fx-font-weight: bold; -fx-text-fill: #38bdf8;" text="#">
+                    <font><Font size="16.0" /></font>
+                </Label>
+            </children>
+        </HBox>
+
+        <TabPane layoutX="15.0" layoutY="95.0" style="-fx-background-color: transparent;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="95.0">
+            <tabs>
+                <Tab style="-fx-font-weight: bold; -fx-font-size: 14px;" text="📝 تفاصيل الجلسة">
+                    <content>
+                        <ScrollPane fx:id="scrollSession" fitToWidth="true" style="-fx-background-color: transparent; -fx-padding: 15;">
+                            <content>
+                                <VBox spacing="15.0">
+                                    <children>
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="المعلومات المالية والزمنية">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                            <content>
+                                                <GridPane hgap="20.0" vgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints minWidth="120.0" /> <ColumnConstraints minWidth="200.0" />
+                                                        <ColumnConstraints minWidth="120.0" /> <ColumnConstraints minWidth="200.0" />
+                                                    </columnConstraints>
+                                                    <children>
+                                                        <Label style="-fx-text-fill: #475569; -fx-font-weight: bold;" text="💵 سعر الجلسة:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                        <Label fx:id="lblPrice" text="-" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                                        <Label style="-fx-text-fill: #475569; -fx-font-weight: bold;" text="⏱️ مدة الجلسة:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                                        <Label fx:id="lblDuration" text="-" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                                                        <Label style="-fx-text-fill: #475569; -fx-font-weight: bold;" text="📅 تاريخ الإنشاء:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblUploadDate" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                                        <Label style="-fx-text-fill: #475569; -fx-font-weight: bold;" text="🔄 تاريخ التعديل:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblModificationDate" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                    </children>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                       </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </TitledPane>
+
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="ملاحظات وتوجيهات الجلسة">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                            <content>
+                                                <VBox>
+                                                    <padding><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></padding>
+                                                    <children>
+                                                        <Label fx:id="lblNotes" text="لا توجد ملاحظات مسجلة لهذه الجلسة." wrapText="true" />
+                                                    </children>
+                                                </VBox>
+                                            </content>
+                                        </TitledPane>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </content>
+                </Tab>
+
+                <Tab style="-fx-font-weight: bold; -fx-font-size: 14px;" text="📐 القياسات البدنية ومعدلات الأيض">
+                    <content>
+                        <ScrollPane fx:id="scrollBody" fitToWidth="true" style="-fx-background-color: transparent; -fx-padding: 15;">
+                            <content>
+                                <VBox spacing="15.0">
+                                    <children>
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="المؤشرات الحيوية والدهون (Body Composition)">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                            <content>
+                                                <GridPane hgap="15.0" vgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints minWidth="110.0" /> <ColumnConstraints minWidth="110.0" />
+                                                        <ColumnConstraints minWidth="110.0" /> <ColumnConstraints minWidth="110.0" />
+                                                        <ColumnConstraints minWidth="110.0" /> <ColumnConstraints minWidth="110.0" />
+                                                    </columnConstraints>
+                                                    <children>
+                                                        <Label style="-fx-font-weight: bold;" text="رقم السجل (ID):" />
+                                                        <Label fx:id="lblBodyId" text="-" GridPane.columnIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="الطول (Height):" GridPane.columnIndex="2" />
+                                                        <Label fx:id="lblHeight" text="-" GridPane.columnIndex="3" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="الوزن (Weight):" GridPane.columnIndex="4" />
+                                                        <Label fx:id="lblWeight" text="-" GridPane.columnIndex="5" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="نسبة الدهون (%):" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblFat" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="عضلات هيكلية (SMM):" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblSMM" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="كتلة العضلات الإجمالية:" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblMuscle" text="-" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="النشاط البدني:" GridPane.rowIndex="2" />
+                                                        <Label fx:id="lblPhysicalActivity" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="معامل النشاط:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                        <Label fx:id="lblActivityFactor" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                    </children>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                       </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </TitledPane>
+
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="معدلات الأيض والتحليلات (Calculated Metrics)">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                            <content>
+                                                <GridPane hgap="15.0" vgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints minWidth="120.0" /> <ColumnConstraints minWidth="150.0" />
+                                                        <ColumnConstraints minWidth="120.0" /> <ColumnConstraints minWidth="150.0" />
+                                                    </columnConstraints>
+                                                    <children>
+                                                        <Label style="-fx-font-weight: bold;" text="مؤشر كتلة الجسم (BMI):" />
+                                                        <Label fx:id="lblBmi" style="-fx-font-weight: bold; -fx-text-fill: #0ea5e9;" text="-" GridPane.columnIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="الحالة الصحية (Status):" GridPane.columnIndex="2" />
+                                                        <Label fx:id="lblStatus" style="-fx-font-weight: bold; -fx-text-fill: #10b981;" text="-" GridPane.columnIndex="3" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="معدل الأيض (BMR):" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblBMR" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="احتياج السعرات (TDEE):" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblTDEE" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                    </children>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                       </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </TitledPane>
+
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="المحيطات التفصيلية السبعة (Circumferences)">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                            <content>
+                                                <GridPane hgap="15.0" vgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints minWidth="90.0" /> <ColumnConstraints minWidth="70.0" />
+                                                        <ColumnConstraints minWidth="90.0" /> <ColumnConstraints minWidth="70.0" />
+                                                        <ColumnConstraints minWidth="90.0" /> <ColumnConstraints minWidth="70.0" />
+                                                    </columnConstraints>
+                                                    <children>
+                                                        <Label style="-fx-font-weight: bold;" text="الذراع (Arm):" />
+                                                        <Label fx:id="lblArm" text="-" GridPane.columnIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="الصدر (Chest):" GridPane.columnIndex="2" />
+                                                        <Label fx:id="lblChest" text="-" GridPane.columnIndex="3" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="الخصر (Waist):" GridPane.columnIndex="4" />
+                                                        <Label fx:id="lblWaist" text="-" GridPane.columnIndex="5" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="البطن (Abdom):" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblAbdominal" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="الورك (Hip):" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblHip" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="الفخذ (Thigh):" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblThigh" text="-" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="الساق (Calf):" GridPane.rowIndex="2" />
+                                                        <Label fx:id="lblCalf" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                    </children>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                       </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </TitledPane>
+
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="تواريخ سجل القياسات">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                            <content>
+                                                <HBox spacing="40.0">
+                                                    <children>
+                                                        <Label style="-fx-font-weight: bold; -fx-text-fill: #64748b;" text="تاريخ الرفع:" />
+                                                        <Label fx:id="lblBodyUploadDate" text="-" />
+                                                        <Label style="-fx-font-weight: bold; -fx-text-fill: #64748b;" text="تاريخ آخر تعديل:" />
+                                                        <Label fx:id="lblBodyModDate" text="-" />
+                                                    </children>
+                                                </HBox>
+                                            </content>
+                                        </TitledPane>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </content>
+                </Tab>
+
+                <Tab style="-fx-font-weight: bold; -fx-font-size: 14px;" text="🥦 الخطة الغذائية الشاملة">
+                    <content>
+                        <ScrollPane fx:id="scrollPlan" fitToWidth="true" style="-fx-background-color: transparent; -fx-padding: 15;">
+                            <content>
+                                <VBox spacing="15.0">
+                                    <children>
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="المعلومات الأساسية والزمنية للخطة">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                            <content>
+                                                <GridPane hgap="20.0" vgap="15.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints minWidth="110.0" /> <ColumnConstraints minWidth="150.0" />
+                                                        <ColumnConstraints minWidth="110.0" /> <ColumnConstraints minWidth="150.0" />
+                                                        <ColumnConstraints minWidth="110.0" /> <ColumnConstraints minWidth="150.0" />
+                                                    </columnConstraints>
+                                                    <children>
+                                                        <Label style="-fx-font-weight: bold;" text="رقم الخطة:" />
+                                                        <Label fx:id="lblPlanId" text="-" GridPane.columnIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="الحالة (Status):" GridPane.columnIndex="2" />
+                                                        <Label fx:id="lblPlanStatus" style="-fx-text-fill: #d97706; -fx-font-weight: bold;" text="-" GridPane.columnIndex="3" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="الهدف (Goal):" GridPane.columnIndex="4" />
+                                                        <Label fx:id="lblPlanGoal" text="-" GridPane.columnIndex="5" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="تاريخ البداية:" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblPlanStart" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="تاريخ النهاية:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblPlanEnd" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                                                        <Label style="-fx-font-weight: bold;" text="مدة الخطة (أيام):" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                        <Label fx:id="lblPlanDuration" text="-" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                                    </children>
+                                       <rowConstraints>
+                                          <RowConstraints />
+                                          <RowConstraints />
+                                       </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </TitledPane>
+
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="المغذيات الكبرى وتوزيع الوجبات (Macros &amp; Meals)">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                            <content>
+                                                <HBox spacing="30.0">
+                                                    <children>
+                                                        <Label style="-fx-font-weight: bold;" text="توزيع الوجبات:" />
+                                                        <Label fx:id="lblPlanMeals" style="-fx-text-fill: #4f46e5; -fx-font-weight: bold;" text="-" />
+                                                        <Label style="-fx-font-weight: bold;" text="🍗 البروتين:" />
+                                                        <Label fx:id="lblProtein" text="- جم" />
+                                                        <Label style="-fx-font-weight: bold;" text="🌾 الكاربوهيدرات:" />
+                                                        <Label fx:id="lblCarb" text="- جم" />
+                                                        <Label style="-fx-font-weight: bold;" text="🥑 الدهون:" />
+                                                        <Label fx:id="lblFatMacro" text="- جم" />
+                                                    </children>
+                                                </HBox>
+                                            </content>
+                                        </TitledPane>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="890.0" spacing="30.0">
+                                 <children>
+                                    <Label style="-fx-font-weight: bold;" text="  اجمالي السعرات:" wrapText="true" />
+                                    <Label fx:id="lblTotalCalories" style="-fx-text-fill: #4f46e5; -fx-font-weight: bold;" text="-" />
+                                    <Label style="-fx-font-weight: bold;" text="الاحتياج من الماء" wrapText="true" />
+                                    <Label fx:id="lblWaterIntake" text="لتر" />
+                                    <Label style="-fx-font-weight: bold;" text="عدد الوجبات في اليوم" wrapText="true" />
+                                    <Label fx:id="lblMealsCount" text="-" />
+                                    <Label style="-fx-font-weight: bold;" text="الملاحظات" wrapText="true" />
+                                    <Label fx:id="lblNote" prefWidth="200.0" text="-" wrapText="true" />
+                                 </children>
+                              </HBox>
+
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="تفاصيل الأطعمة المحددة في الخطة">
+                                            <font><Font name="System Bold" size="14.0" /></font>
+                                            <content>
+                                                <TableView fx:id="tableFoods" prefHeight="250.0" VBox.vgrow="ALWAYS">
+                                                    <columns>
+                                                        <TableColumn fx:id="colMealType" prefWidth="120.0" text="نوع الوجبة" />
+                                                        <TableColumn fx:id="colFoodName" prefWidth="200.0" text="اسم الصنف الغذائي" />
+                                                        <TableColumn fx:id="colQuantity" prefWidth="70.0" text="الكمية" />
+                                                        <TableColumn fx:id="colUnit" prefWidth="70.0" text="الوحدة" />
+                                                        <TableColumn fx:id="colCalories" prefWidth="80.0" text="السعرات" />
+                                                        <TableColumn fx:id="colFoodProtein" prefWidth="70.0" text="بروتين" />
+                                                        <TableColumn fx:id="colFoodCarb" prefWidth="70.0" text="كارب" />
+                                                        <TableColumn fx:id="colFoodFat" prefWidth="70.0" text="دهون" />
+                                                        <TableColumn fx:id="colCostLevel" prefWidth="90.0" text="مستوى التكلفة" />
+                                                    </columns>
+                                                </TableView>
+                                            </content>
+                                        </TitledPane>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </content>
+                </Tab>
+
+                <Tab style="-fx-font-weight: bold; -fx-font-size: 14px;" text="🔬 الفحوصات الطبية">
+                    <content>
+                        <VBox spacing="10.0" style="-fx-padding: 15;">
+                            <children>
+                                <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="سجل الفحوصات المخبرية المرفقة بالجلسة" VBox.vgrow="ALWAYS">
+                                    <font><Font name="System Bold" size="14.0" /></font>
+                                    <content>
+                                        <TableView fx:id="tableExaminations" prefHeight="500.0" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="colExamId" prefWidth="80.0" text="رقم الفحص" />
+                                                <TableColumn fx:id="colExamName" prefWidth="180.0" text="اسم الفحص" />
+                                                <TableColumn fx:id="colExamDate" prefWidth="130.0" text="تاريخ الرفع" />
+                                                <TableColumn fx:id="colExamMod" prefWidth="130.0" text="تاريخ التعديل" />
+                                                <TableColumn fx:id="colExamNotes" prefWidth="230.0" text="الملاحظات" />
+                                                <TableColumn fx:id="colExamImage" prefWidth="150.0" text="صورة الفحص" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </TitledPane>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

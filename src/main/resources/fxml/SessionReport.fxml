@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="804.0" prefWidth="1300" style="-fx-background-color: #F8FAFC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.SessionReportController"> <!-- لون خلفية هادئ ومريح -->
+
+    <!-- قسم الهيدر (أعلى الشاشة) -->
+    <top>
+        <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 24; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 2); -fx-border-color: #E2E8F0; -fx-border-width: 0 0 1 0;">
+            <children>
+                <HBox alignment="CENTER_RIGHT" spacing="10"> <!-- محاذاة لليمين يدعم العربية -->
+                    <children>
+                        <Label style="-fx-text-fill: #1E293B; -fx-font-weight: bold;" text="📋 تقرير جلسة المراجع">
+                            <font>
+                                <Font size="26" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+
+                <GridPane hgap="30" style="-fx-background-color: #F8FAFC; -fx-padding: 15; -fx-background-radius: 8; -fx-border-color: #E2E8F0; -fx-border-radius: 8;" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="100" prefWidth="120" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200" />
+                        <ColumnConstraints minWidth="100" prefWidth="120" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="200" />
+                    </columnConstraints>
+                    <children>
+                        <Label style="-fx-text-fill: #64748B; -fx-font-weight: bold;" text="اسم المراجع:" />
+                        <TextField fx:id="txtClientName" editable="false" style="-fx-background-color: #E2E8F0; -fx-text-fill: #475569;" GridPane.columnIndex="1" />
+
+                        <Label style="-fx-text-fill: #64748B; -fx-font-weight: bold;" text="رقم المراجع:" GridPane.columnIndex="2" />
+                        <TextField fx:id="txtClientID" editable="false" style="-fx-background-color: #E2E8F0; -fx-text-fill: #475569;" GridPane.columnIndex="3" />
+
+                        <Label style="-fx-text-fill: #64748B; -fx-font-weight: bold;" text="تاريخ الجلسة:" GridPane.rowIndex="1" />
+                        <DatePicker fx:id="dpSessionDate" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label style="-fx-text-fill: #64748B; -fx-font-weight: bold;" text="أخصائي التغذية:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtNutritionist" promptText="أدخل اسم الأخصائي..." GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                    </children>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+            </children>
+        </VBox>
+    </top>
+
+    <!-- محتوى التقرير الرئيسي -->
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+            <content>
+                <VBox spacing="20" style="-fx-padding: 30 50 30 50;">
+                    <children>
+
+                        <!-- الصف الأول: التشخيص والتقييم الإكلينيكي -->
+                        <HBox spacing="25">
+                            <children>
+                                <TitledPane collapsible="false" expanded="true" style="-fx-text-fill: #1E293B; -fx-font-weight: bold;" text="🩺 التشخيص الطبي" HBox.hgrow="ALWAYS">
+                                    <TextArea fx:id="txtDiagnosis" prefRowCount="4" promptText="اكتب التشخيص الطبي الكامل هنا..." wrapText="true" />
+                                </TitledPane>
+                                <TitledPane collapsible="false" expanded="true" style="-fx-text-fill: #1E293B; -fx-font-weight: bold;" text="🔬 التقييم الإكلينيكي" HBox.hgrow="ALWAYS">
+                                    <TextArea fx:id="txtAssessment" prefRowCount="4" promptText="اكتب الأعراض السريرية والملاحظات الإكلينيكية..." wrapText="true" />
+                                </TitledPane>
+                            </children>
+                        </HBox>
+
+                        <!-- الصف الثاني: نتائج الجلسة والتوصيات -->
+                        <HBox spacing="25">
+                            <children>
+                                <TitledPane collapsible="false" expanded="true" style="-fx-text-fill: #1E293B; -fx-font-weight: bold;" text="📊 نتائج الجلسة" HBox.hgrow="ALWAYS">
+                                    <TextArea fx:id="txtResults" prefRowCount="4" promptText="التحديثات الحالية، ونتائج القياسات الحيوية..." wrapText="true" />
+                                </TitledPane>
+                                <TitledPane collapsible="false" expanded="true" style="-fx-text-fill: #1E293B; -fx-font-weight: bold;" text="💡 التوصيات والإرشادات" HBox.hgrow="ALWAYS">
+                                    <TextArea fx:id="txtRecommendations" prefRowCount="4" promptText="التغييرات في النظام الغذائي والإرشادات العامة..." wrapText="true" />
+                                </TitledPane>
+                            </children>
+                        </HBox>
+
+                        <!-- الصف الثالث: الأهداف والملاحظات الإضافية -->
+                        <HBox spacing="25">
+                            <children>
+                                <TitledPane collapsible="false" expanded="true" style="-fx-text-fill: #1E293B; -fx-font-weight: bold;" text="🎯 الأهداف حتى الزيارة القادمة" HBox.hgrow="ALWAYS">
+                                    <TextArea fx:id="txtGoals" prefRowCount="4" promptText="اكتب الأهداف قصيرة المدى المحددة للمراجع..." wrapText="true" />
+                                </TitledPane>
+                                <TitledPane collapsible="false" expanded="true" style="-fx-text-fill: #1E293B; -fx-font-weight: bold;" text="📝 ملاحظات إضافية" HBox.hgrow="ALWAYS">
+                                    <TextArea fx:id="txtNotes" prefRowCount="4" promptText="أي ملاحظات عامة أو شخصية أخرى..." wrapText="true" />
+                                </TitledPane>
+                            </children>
+                        </HBox>
+
+                        <!-- قسم المتابعة والالتزام -->
+                        <GridPane hgap="25" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 8; -fx-border-color: #E2E8F0; -fx-border-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.02), 5, 0, 0, 1);" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="120" />
+                                <ColumnConstraints hgrow="ALWAYS" minWidth="200" />
+                                <ColumnConstraints minWidth="120" />
+                                <ColumnConstraints hgrow="ALWAYS" minWidth="200" />
+                            </columnConstraints>
+                            <children>
+                                <Label style="-fx-text-fill: #475569; -fx-font-weight: bold;" text="📅 الموعد القادم:" />
+                                <DatePicker fx:id="dpNextAppointment" maxWidth="Infinity" GridPane.columnIndex="1" />
+
+                                <Label style="-fx-text-fill: #475569; -fx-font-weight: bold;" text="🤝 مدى التزام المراجع:" GridPane.columnIndex="2" />
+                                <ComboBox fx:id="cmbCommitment" maxWidth="Infinity" promptText="اختر مستوى الالتزام..." GridPane.columnIndex="3" />
+                            </children>
+                     <rowConstraints>
+                        <RowConstraints />
+                     </rowConstraints>
+                        </GridPane>
+
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+    <!-- شريط العمليات السفلي (الأزرار) -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-padding: 20 40 20 40; -fx-background-color: white; -fx-border-color: #E2E8F0; -fx-border-width: 1 0 0 0;">
+            <children>
+                <Button fx:id="btnClear" onAction="#handleClearForm" style="-fx-background-color: transparent; -fx-text-fill: #64748B; -fx-border-color: #CBD5E1; -fx-border-radius: 6; -fx-padding: 10 22; -fx-font-weight: bold; -fx-cursor: hand;" text="مسح النموذج" />
+
+                <Button fx:id="btnPreview" onAction="#handlePreviewReport" style="-fx-background-color: #F1F5F9; -fx-text-fill: #475569; -fx-background-radius: 6; -fx-padding: 10 22; -fx-font-weight: bold; -fx-cursor: hand;" text="معاينة" />
+
+                <Button fx:id="btnSave" onAction="#handleSaveReport" style="-fx-background-color: #2563EB; -fx-text-fill: white; -fx-background-radius: 6; -fx-padding: 10 26; -fx-font-weight: bold; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(37,99,235,0.2), 8, 0, 0, 3);" text="💾 حفظ التقرير" />
+
+                <Button fx:id="btnExport" onAction="#handleExportPDF" style="-fx-background-color: #059669; -fx-text-fill: white; -fx-background-radius: 6; -fx-padding: 10 26; -fx-font-weight: bold; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(5,150,105,0.2), 8, 0, 0, 3);" text="📄 تصدير PDF" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

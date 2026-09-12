@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="600.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.AdminFinancialReportController">
+    <children>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-padding: 15 15 10 15;">
+            <children>
+                <Label text="من:" textFill="#0f172a">
+                    <font><Font name="Dubai Bold" size="13.0" /></font>
+                </Label>
+                <DatePicker fx:id="startDatePicker" prefHeight="35.0" style="-fx-border-color: #7CB342; -fx-border-radius: 5; -fx-background-radius: 5;" />
+
+                <Label text="إلى:" textFill="#0f172a">
+                    <font><Font name="Dubai Bold" size="13.0" /></font>
+                </Label>
+                <DatePicker fx:id="endDatePicker" prefHeight="35.0" style="-fx-border-color: #7CB342; -fx-border-radius: 5; -fx-background-radius: 5;" />
+
+                <Button fx:id="btnCalculate" onAction="#handleCalculate" prefHeight="35.0" style="-fx-background-color: #7CB342; -fx-background-radius: 5; -fx-cursor: hand;" text="عرض التقرير" textFill="WHITE">
+                    <font><Font name="Dubai Bold" size="13.0" /></font>
+                </Button>
+
+                <Button fx:id="btnExportPdf" onAction="#handleExportPdf" prefHeight="35.0" style="-fx-background-color: #C65D1E; -fx-background-radius: 5; -fx-cursor: hand;" text="تصدير PDF" textFill="WHITE">
+                    <font><Font name="Dubai Bold" size="13.0" /></font>
+                </Button>
+            </children>
+        </HBox>
+
+        <Separator />
+
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+            <content>
+                <VBox fx:id="resultsContainer" spacing="15.0" style="-fx-padding: 20;">
+                    <children>
+
+                        <Label fx:id="placeholderLabel" text="اختر الفترة الزمنية ثم اضغط 'عرض التقرير'" textFill="#94a3b8">
+                            <font><Font name="Dubai Regular" size="14.0" /></font>
+                        </Label>
+
+                        <GridPane fx:id="summaryGrid" hgap="15.0" vgap="15.0" visible="false" managed="false">
+                            <children>
+
+                                <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #f3f8ee; -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <children>
+                                        <Label text="إجمالي عدد الجلسات" textFill="#64748b">
+                                            <font><Font name="Dubai Regular" size="12.0" /></font>
+                                        </Label>
+                                        <Label fx:id="totalSessionsLabel" text="0" textFill="#7CB342">
+                                            <font><Font name="Dubai Bold" size="22.0" /></font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+
+                                <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #fdf3ea; -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <children>
+                                        <Label text="إجمالي الدخل" textFill="#64748b">
+                                            <font><Font name="Dubai Regular" size="12.0" /></font>
+                                        </Label>
+                                        <Label fx:id="totalRevenueLabel" text="0" textFill="#C65D1E">
+                                            <font><Font name="Dubai Bold" size="22.0" /></font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+
+                                <VBox alignment="CENTER" spacing="5.0" style="-fx-background-color: #f3f8ee; -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <children>
+                                        <Label text="عملاء جدد في الفترة" textFill="#64748b">
+                                            <font><Font name="Dubai Regular" size="12.0" /></font>
+                                        </Label>
+                                        <Label fx:id="newClientsLabel" text="0" textFill="#7CB342">
+                                            <font><Font name="Dubai Bold" size="22.0" /></font>
+                                        </Label>
+                                    </children>
+                                </VBox>
+
+                            </children>
+                        </GridPane>
+
+                        <Separator />
+
+                        <Label fx:id="commitmentTitleLabel" text="توزيع مستوى الالتزام" textFill="#0f172a" visible="false" managed="false">
+                            <font><Font name="Dubai Bold" size="15.0" /></font>
+                        </Label>
+
+                        <VBox fx:id="commitmentContainer" spacing="8.0" />
+
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+
+    </children>
+</VBox>

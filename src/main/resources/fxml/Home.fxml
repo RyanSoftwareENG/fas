@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox
+        alignment="CENTER_RIGHT"
+        nodeOrientation="RIGHT_TO_LEFT"
+        styleClass="fas-home-root"
+        stylesheets="@../css/fas.css"
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="user_interface.offer.Home">
+
+    <children>
+
+        <!-- =====================================================
+             SIDEBAR
+             ===================================================== -->
+
+        <VBox
+                fx:id="sidebar"
+                minWidth="235.0"
+                prefWidth="255.0"
+                maxWidth="285.0"
+                spacing="8.0"
+                fillWidth="true"
+                styleClass="fas-home-sidebar">
+
+            <padding>
+                <Insets
+                        top="24.0"
+                        right="14.0"
+                        bottom="18.0"
+                        left="14.0"/>
+            </padding>
+
+            <children>
+
+                <!-- =================================================
+                     BRAND
+                     ================================================= -->
+
+                <VBox
+                        alignment="CENTER_RIGHT"
+                        spacing="3.0"
+                        styleClass="fas-home-brand">
+
+                    <Label
+                            text="FAS"
+                            styleClass="fas-home-brand-title"/>
+
+                    <Label
+                            text="Food Assistant System"
+                            styleClass="fas-home-brand-subtitle"/>
+
+                </VBox>
+
+                <Region prefHeight="14.0"/>
+
+                <!-- =================================================
+                     MENU HEADER
+                     ================================================= -->
+
+                <VBox
+                        spacing="3.0"
+                        styleClass="fas-home-menu-header">
+
+                    <Label
+                            text="القائمة الرئيسية"
+                            styleClass="fas-home-menu-title"/>
+
+                    <Label
+                            text="إدارة العيادة"
+                            styleClass="fas-home-menu-subtitle"/>
+
+                </VBox>
+
+                <!-- =================================================
+                     HOME
+                     ================================================= -->
+
+                <Button
+                        fx:id="homeBtn"
+                        alignment="CENTER_RIGHT"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#handleHomeBtn"
+                        prefHeight="48.0"
+                        styleClass="fas-home-nav-button"
+                        text="الرئيسية">
+
+                    <padding>
+                        <Insets
+                                top="8.0"
+                                right="16.0"
+                                bottom="8.0"
+                                left="16.0"/>
+                    </padding>
+
+                    <graphic>
+                        <Label
+                                text="⌂"
+                                styleClass="fas-home-nav-icon"/>
+                    </graphic>
+
+                </Button>
+
+                <!-- =================================================
+                     CLIENTS
+                     ================================================= -->
+
+                <Button
+                        fx:id="clientManagementBtn"
+                        alignment="CENTER_RIGHT"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#handleClientManagementBtn"
+                        prefHeight="48.0"
+                        styleClass="fas-home-nav-button"
+                        text="إدارة العملاء">
+
+                    <padding>
+                        <Insets
+                                top="8.0"
+                                right="16.0"
+                                bottom="8.0"
+                                left="16.0"/>
+                    </padding>
+
+                    <graphic>
+                        <Label
+                                text="👤"
+                                styleClass="fas-home-nav-icon"/>
+                    </graphic>
+
+                </Button>
+
+                <!-- =================================================
+                     MEALS
+                     ================================================= -->
+
+                <Button
+                        fx:id="mealsBtn"
+                        alignment="CENTER_RIGHT"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#handleMealsBtn"
+                        prefHeight="48.0"
+                        styleClass="fas-home-nav-button"
+                        text="إدارة الوجبات">
+
+                    <padding>
+                        <Insets
+                                top="8.0"
+                                right="16.0"
+                                bottom="8.0"
+                                left="16.0"/>
+                    </padding>
+
+                    <graphic>
+                        <Label
+                                text="🍎"
+                                styleClass="fas-home-nav-icon"/>
+                    </graphic>
+
+                </Button>
+
+                <!-- =================================================
+                     SESSIONS
+                     ================================================= -->
+
+                <Button
+                        fx:id="sessionBtn"
+                        alignment="CENTER_RIGHT"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#handleSessionBtn"
+                        prefHeight="48.0"
+                        styleClass="fas-home-nav-button"
+                        text="إدارة الجلسات">
+
+                    <padding>
+                        <Insets
+                                top="8.0"
+                                right="16.0"
+                                bottom="8.0"
+                                left="16.0"/>
+                    </padding>
+
+                    <graphic>
+                        <Label
+                                text="⏱"
+                                styleClass="fas-home-nav-icon"/>
+                    </graphic>
+
+                </Button>
+
+                <!-- =================================================
+                     HEALTH
+                     ================================================= -->
+
+                <Button
+                        fx:id="diseasesAndAllergyBtn"
+                        alignment="CENTER_RIGHT"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#handleDiseasesAndAllergyBtn"
+                        prefHeight="48.0"
+                        styleClass="fas-home-nav-button"
+                        text="الأمراض والحساسية">
+
+                    <padding>
+                        <Insets
+                                top="8.0"
+                                right="16.0"
+                                bottom="8.0"
+                                left="16.0"/>
+                    </padding>
+
+                    <graphic>
+                        <Label
+                                text="🩺"
+                                styleClass="fas-home-nav-icon"/>
+                    </graphic>
+
+                </Button>
+
+                <!-- =================================================
+                     REPORTS
+                     ================================================= -->
+
+                <Button
+                        fx:id="reportBtn"
+                        alignment="CENTER_RIGHT"
+                        maxWidth="1.7976931348623157E308"
+                        mnemonicParsing="false"
+                        onAction="#handleReportBtn"
+                        prefHeight="48.0"
+                        styleClass="fas-home-nav-button"
+                        text="إدارة التقارير">
+
+                    <padding>
+                        <Insets
+                                top="8.0"
+                                right="16.0"
+                                bottom="8.0"
+                                left="16.0"/>
+                    </padding>
+
+                    <graphic>
+                        <Label
+                                text="📊"
+                                styleClass="fas-home-nav-icon"/>
+                    </graphic>
+
+                </Button>
+
+                <Region VBox.vgrow="ALWAYS"/>
+
+                <!-- =================================================
+                     FOOTER
+                     ================================================= -->
+
+                <VBox
+                        alignment="CENTER"
+                        spacing="3.0"
+                        styleClass="fas-home-sidebar-footer">
+
+                    <Label
+                            text="FAS"
+                            styleClass="fas-home-footer-title"/>
+
+                    <Label
+                            text="Food Assistant System"
+                            styleClass="fas-home-footer-subtitle"/>
+
+                </VBox>
+
+            </children>
+
+        </VBox>
+
+        <!-- =====================================================
+             MAIN CONTENT
+             ===================================================== -->
+
+        <AnchorPane
+                fx:id="mainContentArea"
+                minWidth="0.0"
+                minHeight="0.0"
+                prefHeight="800.0"
+                HBox.hgrow="ALWAYS"
+                styleClass="fas-home-content">
+
+            <children>
+
+                <VBox
+                        alignment="CENTER"
+                        spacing="26.0"
+                        AnchorPane.topAnchor="0.0"
+                        AnchorPane.bottomAnchor="0.0"
+                        AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0"
+                        styleClass="fas-home-welcome">
+
+                    <padding>
+                        <Insets
+                                top="45.0"
+                                right="50.0"
+                                bottom="45.0"
+                                left="50.0"/>
+                    </padding>
+
+                    <children>
+
+                        <!-- =================================================
+                             TEXT LOGO
+                             ================================================= -->
+
+                        <Label
+                                text="FAS"
+                                styleClass="fas-home-logo-text"/>
+
+                        <Label
+                                text="Food Assistant System"
+                                styleClass="fas-home-logo-subtitle"/>
+
+                        <!-- =================================================
+                             DIVIDER
+                             ================================================= -->
+
+                        <Region
+                                prefHeight="2.0"
+                                maxWidth="110.0"
+                                styleClass="fas-home-divider"/>
+
+                        <!-- =================================================
+                             WELCOME
+                             ================================================= -->
+
+                        <VBox
+                                alignment="CENTER"
+                                maxWidth="760.0"
+                                spacing="10.0">
+
+                            <Label
+                                    text="مرحباً بك في نظام FAS"
+                                    styleClass="fas-home-main-title"/>
+
+                            <Label
+                                    alignment="CENTER"
+                                    maxWidth="680.0"
+                                    text="نظام متكامل يساعد عيادات التغذية على تنظيم أعمالها وإدارة بيانات العملاء والجلسات والخطط الغذائية والتقارير من خلال واجهة سهلة وواضحة."
+                                    textAlignment="CENTER"
+                                    wrapText="true"
+                                    styleClass="fas-home-main-description"/>
+
+                        </VBox>
+
+                        <!-- =================================================
+                             ABOUT PROJECT
+                             ================================================= -->
+
+                        <VBox
+                                alignment="CENTER"
+                                maxWidth="760.0"
+                                spacing="9.0"
+                                styleClass="fas-home-text-section">
+
+                            <Label
+                                    text="عن المشروع"
+                                    styleClass="fas-home-section-heading"/>
+
+                            <Label
+                                    alignment="CENTER"
+                                    maxWidth="680.0"
+                                    text="تم تطوير FAS ليكون حلاً عملياً لإدارة عيادات التغذية، مع التركيز على سهولة الاستخدام وتنظيم المعلومات وربط مختلف العمليات في نظام واحد."
+                                    textAlignment="CENTER"
+                                    wrapText="true"
+                                    styleClass="fas-home-section-description"/>
+
+                        </VBox>
+
+                        <!-- =================================================
+                             DEVELOPMENT TEAM
+                             ================================================= -->
+
+                        <VBox
+                                alignment="CENTER"
+                                maxWidth="760.0"
+                                spacing="9.0"
+                                styleClass="fas-home-text-section">
+
+                            <Label
+                                    text="فريق التطوير"
+                                    styleClass="fas-home-team-heading"/>
+
+                            <Label
+                                    alignment="CENTER"
+                                    maxWidth="680.0"
+                                    text="تم تصميم وتحليل وتطوير المشروع بواسطة فريق من طلاب هندسة البرمجيات، بهدف تحويل المفاهيم البرمجية والأكاديمية إلى نظام حقيقي قابل للاستخدام والتطوير."
+                                    textAlignment="CENTER"
+                                    wrapText="true"
+                                    styleClass="fas-home-section-description"/>
+
+                        </VBox>
+
+                        <!-- =================================================
+                             FOOTNOTE
+                             ================================================= -->
+
+                        <Label
+                                text="نسعى إلى بناء برمجيات بسيطة، عملية، وقابلة للتطور."
+                                styleClass="fas-home-closing-text"/>
+
+                    </children>
+
+                </VBox>
+
+            </children>
+
+        </AnchorPane>
+
+    </children>
+
+</HBox>

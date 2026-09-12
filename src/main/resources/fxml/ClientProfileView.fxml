@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1100.0" style="-fx-background-color: #f8fafc;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.ClientDashboardViewController">
+    <children>
+        <HBox alignment="CENTER_RIGHT" layoutX="15.0" layoutY="15.0" prefHeight="65.0" prefWidth="1070.0" style="-fx-background-color: #1e293b; -fx-background-radius: 10;" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+            <children>
+                <Label fx:id="lblHeaderTitle" text="نظام لوحة تتبع المؤشرات الحيوية والسريرية المتكاملة للعميل" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="19.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets right="20.0" />
+                    </HBox.margin>
+                </Label>
+            </children>
+        </HBox>
+
+        <TabPane layoutX="15.0" layoutY="95.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="540.0" prefWidth="1070.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="95.0">
+            <tabs>
+
+                <Tab text="👤 البيانات الأساسية والنمط المعيشي">
+                    <content>
+                        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent; -fx-padding: 15;">
+                            <VBox spacing="15.0">
+                                <children>
+                                    <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="الهوية التعريفية للعميل في النظام">
+                                        <GridPane hgap="15.0" prefWidth="1037.0" vgap="12.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints maxWidth="150.0" minWidth="10.0" prefWidth="130.0" />
+                                                <ColumnConstraints minWidth="10.0" />
+                                                <ColumnConstraints maxWidth="150.0" minWidth="10.0" prefWidth="130.0" />
+                                                <ColumnConstraints minWidth="10.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="رقم ملف العميل (ID):" />
+                                                <Label fx:id="lblClientID" text="-" GridPane.columnIndex="1" />
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="الاسم الكامل:" GridPane.columnIndex="2" />
+                                                <Label fx:id="lblFullName" text="-" GridPane.columnIndex="3" />
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="الجنس البيولوجي:" GridPane.rowIndex="1" />
+                                                <Label fx:id="lblGender" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="تاريخ الميلاد (العمر):" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                <Label fx:id="lblBirthDate" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <Label text="تاريخ آخر تعديل:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Label text="تاربخ تسجيل العميل" GridPane.rowIndex="2" />
+                                    <Label fx:id="modificationDate" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <Label fx:id="uploadTime" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Label text="رقم الهاتف" GridPane.rowIndex="3" />
+                                    <Label fx:id="phoneNumber" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                            </children>
+                                        </GridPane>
+                                    </TitledPane>
+
+                                    <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="تفاصيل الـ Lifestyle المعيشية والغذائية">
+                                        <GridPane hgap="15.0" vgap="12.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints maxWidth="160.0" minWidth="10.0" prefWidth="140.0" />
+                                                <ColumnConstraints minWidth="10.0" />
+                                                <ColumnConstraints maxWidth="160.0" minWidth="10.0" prefWidth="140.0" />
+                                                <ColumnConstraints minWidth="10.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <!-- الصف الأول -->
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="عدد الوجبات اليومية:" />
+                                                <Label fx:id="lblMealsPerDay" text="-" GridPane.columnIndex="1" />
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="الميزانية المخصصة:" GridPane.columnIndex="2" />
+                                                <Label fx:id="lblBudget" text="-" GridPane.columnIndex="3" />
+
+                                                <!-- الصف الثاني -->
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="طبيعة الإفطار الشائع:" GridPane.rowIndex="1" />
+                                                <Label fx:id="lblBreakfast" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="طبيعة الغداء الشائع:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                <Label fx:id="lblLunch" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                                                <!-- الصف الثالث -->
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="طبيعة العشاء الشائع:" GridPane.rowIndex="2" />
+                                                <Label fx:id="lblDinner" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="معدل ساعات النوم:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Label fx:id="lblSleepHours" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+                                                <!-- الصف الرابع (جديد) -->
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="الوجبات الخفيفة (Snacks):" GridPane.rowIndex="3" />
+                                                <Label fx:id="lblSnacks" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="المشروبات الشائعة (Drinks):" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                <Label fx:id="lblDrinks" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+
+                                                <!-- الصف الخامس (جديد) -->
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #475569;" text="العادات السيئة (Bad Habits):" GridPane.rowIndex="4" />
+                                                <Label fx:id="lblBadHabits" text="-" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                            </children>
+                                        </GridPane>
+                                    </TitledPane>
+                                </children>
+                            </VBox>
+                        </ScrollPane>
+                    </content>
+                </Tab>
+
+                <Tab text="🩺 التاريخ المرضي وسجل التحسسات">
+                    <content>
+                        <VBox spacing="15.0" style="-fx-padding: 15;">
+                            <children>
+                                <HBox prefHeight="220.0" spacing="15.0" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <VBox HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #dc2626;" text="⚠️ الأمراض المزمنة المسجلة لـ PatientClient:" />
+                                                <ListView fx:id="listViewDiseases" prefHeight="180.0" VBox.vgrow="ALWAYS">
+                                                    <padding>
+                                                        <Insets left="5.0" right="5.0" />
+                                                    </padding></ListView>
+                                            </children>
+                                        </VBox>
+                                        <VBox HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label style="-fx-font-weight: bold; -fx-text-fill: #ea580c;" text="🚫 أنواع ومصادر التحسس المكتشفة:" />
+                                                <ListView fx:id="listViewAllergies" prefHeight="180.0" VBox.vgrow="ALWAYS">
+                                                    <padding>
+                                                        <Insets left="5.0" right="5.0" />
+                                                    </padding></ListView>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <TitledPane alignment="CENTER_RIGHT" collapsible="false" text="تفاصيل العلاج الدوائي والأطعمة المتعارضة">
+                                    <GridPane hgap="10.0" vgap="10.0">
+                                        <columnConstraints>
+                                            <ColumnConstraints maxWidth="200.0" minWidth="10.0" prefWidth="160.0" />
+                                            <ColumnConstraints minWidth="10.0" prefWidth="750.0" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        </rowConstraints>
+                                        <children>
+                                            <Label style="-fx-font-weight: bold;" text="💊 الأدوية المستهلكة حالياً:" />
+                                            <Label fx:id="lblCurrentMeds" text="-" GridPane.columnIndex="1" />
+                                            <Label style="-fx-font-weight: bold;" text="🥦 الأطعمة المرفوضة/المكروهة:" GridPane.rowIndex="1" />
+                                            <Label fx:id="lblDislikedFoods" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                            <Label style="-fx-font-weight: bold;" text="📝 التاريخ الطبي العائلي:" GridPane.rowIndex="2" />
+                                            <Label fx:id="lblMedicalHistory" text="-" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        </children>
+                                    </GridPane>
+                                </TitledPane>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
+
+                <Tab text="📊 تتبع الجلسات والقياسات الأنثروبومترية">
+                    <content>
+                        <HBox spacing="15.0" style="-fx-padding: 15;">
+                            <children>
+                                <VBox prefWidth="350.0" spacing="8.0">
+                                    <children>
+                                        <Label style="-fx-font-weight: bold; -fx-text-fill: #1e293b;" text="📋 قائمة الجلسات المسجلة للعميل:" />
+                                        <TableView fx:id="tblSessions" prefHeight="430.0" prefWidth="340.0" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="colSessionID" prefWidth="55.0" text="رقم الجلسة" />
+                                                <TableColumn fx:id="colSessionUploadTime" prefWidth="115.0" text="تاريخ ووقت الزيارة" />
+                                                <TableColumn fx:id="colSessionDuration" prefWidth="75.0" text="مدة الجلسة" />
+                                                <TableColumn fx:id="colSessionPrice" prefWidth="85.0" text="السعر" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" prefHeight="445.0" text="📐 القياسات وتركيبات ومحيطات الجسم" VBox.vgrow="ALWAYS">
+                                            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                                                <VBox spacing="12.0">
+                                                    <children>
+                                                        <HBox spacing="10.0" style="-fx-background-color: #f1f5f9; -fx-padding: 8; -fx-background-radius: 6;">
+                                                            <children>
+                                                                <Label style="-fx-font-weight: bold;" text="✍️ ملاحظات الجلسة:" />
+                                                                <Label fx:id="lblSessionNotes" text="-" wrapText="true" />
+                                                            </children>
+                                                        </HBox>
+
+                                                        <Label style="-fx-font-weight: bold; -fx-text-fill: #2563eb;" text="🔹 المؤشرات العضلية والدهنية الأساسية:" />
+                                                        <GridPane hgap="10.0" vgap="10.0">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints prefWidth="140.0" />
+                                                                <ColumnConstraints prefWidth="110.0" />
+                                                                <ColumnConstraints prefWidth="140.0" />
+                                                                <ColumnConstraints prefWidth="110.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                            <children>
+                                                                <Label style="-fx-font-weight: bold;" text="الطول (Height):" />
+                                                                <Label fx:id="lblHeight" text="- سم" GridPane.columnIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="الوزن (Weight):" GridPane.columnIndex="2" />
+                                                                <Label fx:id="lblWeight" text="- كجم" GridPane.columnIndex="3" />
+                                                                <Label style="-fx-font-weight: bold;" text="كتلة العضلات (SMM):" GridPane.rowIndex="1" />
+                                                                <Label fx:id="lblSMM" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="الكتلة الإجمالية:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                                <Label fx:id="lblMuscleMass" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="نسبة الدهون (%):" GridPane.rowIndex="2" />
+                                                                <Label fx:id="lblBodyFat" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                <Label style="-fx-font-weight: bold;" text="النشاط البدني المسجل:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                                <Label fx:id="lblPhysicalActivity" text="-" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                            </children>
+                                                        </GridPane>
+
+                                                        <Label style="-fx-font-weight: bold; -fx-text-fill: #9333ea;" text="🧮 التحليلات ومعدلات الأيض (Calculated Metrics):" />
+                                                        <GridPane hgap="10.0" vgap="10.0">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints prefWidth="140.0" />
+                                                                <ColumnConstraints prefWidth="110.0" />
+                                                                <ColumnConstraints prefWidth="140.0" />
+                                                                <ColumnConstraints prefWidth="110.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                            <children>
+                                                                <Label style="-fx-font-weight: bold;" text="مؤشر كتلة الجسم (BMI):" />
+                                                                <Label fx:id="lblBMI" text="-" GridPane.columnIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="حالة الكتلة (Status):" GridPane.columnIndex="2" />
+                                                                <Label fx:id="lblBMIStatus" text="-" GridPane.columnIndex="3" />
+                                                                <Label style="-fx-font-weight: bold;" text="معدل الأيض (BMR):" GridPane.rowIndex="1" />
+                                                                <Label fx:id="lblBMR" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="احتياج السعرات (TDEE):" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                                <Label fx:id="lblTDEE" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                            </children>
+                                                        </GridPane>
+
+                                                        <Label style="-fx-font-weight: bold; -fx-text-fill: #64748b;" text="🕒 بيانات السجل ومعامل النشاط:" />
+                                                        <GridPane hgap="10.0" vgap="10.0">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints prefWidth="140.0" />
+                                                                <ColumnConstraints prefWidth="110.0" />
+                                                                <ColumnConstraints prefWidth="140.0" />
+                                                                <ColumnConstraints prefWidth="110.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                            <children>
+                                                                <Label style="-fx-font-weight: bold;" text="معامل النشاط المدخل:" />
+                                                                <Label fx:id="lblActivityFactor" text="-" GridPane.columnIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="تاريخ رفع السجل:" GridPane.rowIndex="1" />
+                                                                <Label fx:id="lblBodyDataUpload" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="تاريخ آخر تعديل:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                                <Label fx:id="lblBodyDataMod" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                            </children>
+                                                        </GridPane>
+
+                                                        <Label style="-fx-font-weight: bold; -fx-text-fill: #16a34a;" text="📏 قياس محيطات الجسم السبعة التفصيلية (Circumferences):" />
+                                                        <GridPane hgap="10.0" vgap="10.0">
+                                                            <columnConstraints>
+                                                                <ColumnConstraints prefWidth="120.0" />
+                                                                <ColumnConstraints prefWidth="70.0" />
+                                                                <ColumnConstraints prefWidth="120.0" />
+                                                                <ColumnConstraints prefWidth="70.0" />
+                                                                <ColumnConstraints prefWidth="120.0" />
+                                                                <ColumnConstraints prefWidth="70.0" />
+                                                            </columnConstraints>
+                                                            <rowConstraints>
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                            </rowConstraints>
+                                                            <children>
+                                                                <Label style="-fx-font-weight: bold;" text="محيط الذراع (Arm):" />
+                                                                <Label fx:id="lblArmC" text="-" GridPane.columnIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="محيط الصدر (Chest):" GridPane.columnIndex="2" />
+                                                                <Label fx:id="lblChestC" text="-" GridPane.columnIndex="3" />
+                                                                <Label style="-fx-font-weight: bold;" text="محيط الخصر (Waist):" GridPane.columnIndex="4" />
+                                                                <Label fx:id="lblWaistC" text="-" GridPane.columnIndex="5" />
+                                                                <Label style="-fx-font-weight: bold;" text="محيط البطن (Abdom):" GridPane.rowIndex="1" />
+                                                                <Label fx:id="lblAbdominalC" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="منتصف الفخذ (Thigh):" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                                <Label fx:id="lblMidThighC" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="محيط الساق (Calf):" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                                <Label fx:id="lblCalfC" text="-" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                                                <Label style="-fx-font-weight: bold;" text="محيط الورك (Hip):" GridPane.rowIndex="2" />
+                                                                <Label fx:id="lblHipC" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                            </children>
+                                                        </GridPane>
+                                                    </children>
+                                                </VBox>
+                                            </ScrollPane>
+                                        </TitledPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </content>
+                </Tab>
+
+                <Tab text="🔬 الفحوصات والخطط العلاجية المتزامنة">
+                    <content>
+                        <HBox spacing="15.0" style="-fx-padding: 15;">
+                            <children>
+                                <VBox prefWidth="480.0" spacing="8.0" HBox.hgrow="SOMETIMES">
+                                    <children>
+                                        <Label style="-fx-font-weight: bold; -fx-text-fill: #7c3aed;" text="📸 تقارير الفحوصات المخبرية المرفقة (Examinations In Session):" />
+                                        <ScrollPane fx:id="examintionList" prefHeight="456.0" prefWidth="480.0" />
+                                    </children>
+                                </VBox>
+
+                                <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label style="-fx-font-weight: bold; -fx-text-fill: #0d9488;" text="🥦 خطة السعرات والمغذيات الكبرى الصادرة المربوطة:" />
+                                        <TitledPane alignment="CENTER_RIGHT" collapsible="false" prefHeight="458.0" prefWidth="544.0" text="تفاصيل محتويات الخطة الغذائية الحالية (Nutrition Plan)" VBox.vgrow="ALWAYS">
+                                            <GridPane hgap="10.0" prefHeight="352.0" prefWidth="542.0" vgap="14.0">
+                                                <columnConstraints>
+                                                    <ColumnConstraints prefWidth="140.0" />
+                                                    <ColumnConstraints />
+                                                </columnConstraints>
+                                                <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                </rowConstraints>
+                                                <children>
+                                                    <Label style="-fx-font-weight: bold;" text="🎯 الهدف العلاجي:" />
+                                                    <Label fx:id="lblPlanGoal" text="-" GridPane.columnIndex="1" />
+                                                    <Label style="-fx-font-weight: bold;" text="⏳ الفترة الزمنية والحالة:" GridPane.rowIndex="1" />
+                                                    <Label fx:id="lblPlanDatesAndStatus" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                    <Label style="-fx-font-weight: bold;" text="🍗 البروتين المستهدف:" GridPane.rowIndex="2" />
+                                                    <Label fx:id="lblPlanProtein" text="- جرام" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                    <Label style="-fx-font-weight: bold;" text="🥑 الدهون الصحية:" GridPane.rowIndex="3" />
+                                                    <Label fx:id="lblPlanFat" text="- جرام" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                    <Label style="-fx-font-weight: bold;" text="🌾 الكربوهيدرات:" GridPane.rowIndex="4" />
+                                                    <Label fx:id="lblPlanCarbs" text="- جرام" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                    <Label style="-fx-font-weight: bold;" text="🍽️  الوجبات:" GridPane.rowIndex="6" />
+                                                    <Label fx:id="lblMeal" text="-" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                       <Label text="🍱 توزيع الوجبات" GridPane.rowIndex="5">
+                                          <font>
+                                             <Font name="System Bold" size="12.0" />
+                                          </font>
+                                       </Label>
+                                       <Label fx:id="lblMealDistribution" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                       <Label fx:id="lblTotalCalories" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                       <Label style="-fx-font-weight: bold;" text=" اجمالي السعرات:" GridPane.rowIndex="7" />
+                                       <Label fx:id="lblWaterIntake" text="لتر" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                       <Label style="-fx-font-weight: bold;" text=" الاحتياج من الماء:" GridPane.rowIndex="8" />
+                                       <Label fx:id="lblMealsCount" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                       <Label style="-fx-font-weight: bold;" text=" عدد الوجبات في اليوم:" GridPane.rowIndex="9" />
+                                       <Label fx:id="lblNote" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                       <Label style="-fx-font-weight: bold;" text=" الملاحظات:" GridPane.rowIndex="10" />
+                                                </children>
+                                            </GridPane>
+                                        </TitledPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+
+        <Button fx:id="btnBack" layoutX="15.0" layoutY="665.0" mnemonicParsing="false" onAction="#handleCloseDashboard" prefHeight="42.0" prefWidth="160.0" style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="🚪 إغلاق الملف الصحي" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
+    </children>
+</AnchorPane>

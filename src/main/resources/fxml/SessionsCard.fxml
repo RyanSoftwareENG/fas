@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="75.0" prefWidth="600.0" spacing="15.0" style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e2e8f0; -fx-border-width: 1; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.06), 6, 0, 0, 2);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.SessionsCardController">
+    <children>
+        <HBox alignment="CENTER_RIGHT" spacing="20.0" HBox.hgrow="ALWAYS">
+            <children>
+                <Label fx:id="nameCustomerSession" text="اسم العميل" textFill="#0f172a">
+                    <font><Font name="Dubai Bold" size="15.0" /></font>
+                </Label>
+                <Label fx:id="date" text="التاريخ والوقت" textFill="#64748b">
+                    <font><Font name="Dubai Regular" size="13.0" /></font>
+                </Label>
+                <Label fx:id="sessionId" text="#رقم الجلسة" textFill="#1e40af">
+                    <font><Font name="Dubai Bold" size="14.0" /></font>
+                </Label>
+            </children>
+            <HBox.margin><Insets left="15.0" right="15.0" /></HBox.margin>
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="8.0">
+            <children>
+            <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#handleEdit" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #0284c7; -fx-background-radius: 5; -fx-cursor: hand;" text="تعديل" textFill="WHITE">
+               <font>
+                  <Font name="Dubai Bold" size="12.0" />
+               </font>
+            </Button>
+                <Button fx:id="btnView" mnemonicParsing="false" onAction="#handleView" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #f59e0b; -fx-background-radius: 5; -fx-cursor: hand;" text="عرض" textFill="WHITE">
+                    <font><Font name="Dubai Bold" size="12.0" /></font>
+                </Button>
+                <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#handleDelete" prefHeight="32.0" prefWidth="75.0" style="-fx-background-color: #ef4444; -fx-background-radius: 5; -fx-cursor: hand;" text="حذف" textFill="WHITE">
+                    <font><Font name="Dubai Bold" size="12.0" /></font>
+                </Button>
+            </children>
+            <HBox.margin><Insets left="15.0" right="15.0" /></HBox.margin>
+        </HBox>
+    </children>
+</HBox>

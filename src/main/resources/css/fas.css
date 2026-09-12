@@ -1,0 +1,1881 @@
+/* =========================================================
+   FAS DESIGN SYSTEM
+   ========================================================= */
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+.fas-root {
+    -fx-background-color: #F1F5F9;
+    -fx-font-family: "Segoe UI", "Arial";
+}
+
+/* =========================================================
+   COLOR PALETTE
+   ========================================================= */
+
+/*
+    Primary      = Blue
+    Nutrition    = Cyan
+    Success      = Green
+    Exam         = Purple
+    Warning      = Orange
+    Danger       = Red
+    Info         = Teal
+*/
+
+/* =========================================================
+   MAIN NAVBAR
+   ========================================================= */
+
+.fas-navbar {
+    -fx-background-color: linear-gradient(
+        to bottom,
+        #FFFFFF,
+        #F8FAFC
+    );
+
+    -fx-border-color: #CBD5E1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.fas-navbar-top {
+    -fx-background-color: #FFFFFF;
+}
+
+.fas-navbar-logo {
+    -fx-font-size: 25px;
+    -fx-font-weight: 800;
+
+    -fx-text-fill: #2563EB;
+}
+
+.fas-navbar-subtitle {
+    -fx-font-size: 9px;
+    -fx-text-fill: #64748B;
+}
+
+.fas-navbar-separator {
+    -fx-background-color: #E2E8F0;
+}
+
+.fas-navbar-section-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+
+    -fx-text-fill: #0F172A;
+}
+
+.fas-navbar-section-subtitle {
+    -fx-font-size: 10px;
+    -fx-text-fill: #64748B;
+}
+
+/* =========================================================
+   MAIN NAVIGATION
+   ========================================================= */
+
+.fas-navigation {
+    -fx-background-color: linear-gradient(
+        to right,
+        #F8FAFC,
+        #EFF6FF
+    );
+
+    -fx-border-color: #DBEAFE;
+    -fx-border-width: 1 0 0 0;
+
+    -fx-padding: 7 18 7 18;
+}
+
+/* =========================================================
+   SHARED NAVIGATION BUTTON
+   ========================================================= */
+
+.fas-nav-button {
+    -fx-background-color: transparent;
+
+    -fx-background-radius: 11;
+
+    -fx-border-color: transparent;
+    -fx-border-radius: 11;
+    -fx-border-width: 1;
+
+    -fx-cursor: hand;
+
+    -fx-padding: 0 12 0 12;
+}
+
+.fas-nav-button:hover {
+    -fx-background-color: #E0F2FE;
+    -fx-border-color: #BAE6FD;
+}
+
+.fas-nav-button:pressed {
+    -fx-background-color: #BAE6FD;
+}
+
+/* =========================================================
+   ACTIVE NAVIGATION
+   ========================================================= */
+
+.fas-nav-button.fas-nav-active {
+    -fx-background-color: linear-gradient(
+        to right,
+        #2563EB,
+        #3B82F6
+    );
+
+    -fx-border-color: #2563EB;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(37, 99, 235, 0.24),
+        10,
+        0.18,
+        0,
+        3
+    );
+}
+
+.fas-nav-button.fas-nav-active:hover {
+    -fx-background-color: linear-gradient(
+        to right,
+        #1D4ED8,
+        #2563EB
+    );
+
+    -fx-border-color: #1D4ED8;
+}
+
+.fas-nav-button.fas-nav-active:pressed {
+    -fx-background-color: #1E40AF;
+}
+
+/* =========================================================
+   NAVIGATION CONTENT
+   ========================================================= */
+
+.fas-nav-icon {
+    -fx-font-size: 17px;
+}
+
+.fas-nav-title {
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #334155;
+}
+
+.fas-nav-button.fas-nav-active .fas-nav-title {
+    -fx-text-fill: #FFFFFF;
+}
+
+.fas-nav-shortcut {
+    -fx-font-size: 8px;
+    -fx-text-fill: #64748B;
+}
+
+.fas-nav-button.fas-nav-active .fas-nav-shortcut {
+    -fx-text-fill: #DBEAFE;
+}
+
+/* =========================================================
+   SECTION NAVIGATION
+   ========================================================= */
+
+.fas-section-navigation {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 12 0;
+}
+
+.fas-section-navigation .fas-nav-button {
+    -fx-min-width: 135px;
+    -fx-pref-width: 150px;
+
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-max-height: 40px;
+
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+
+    -fx-padding: 0 10 0 10;
+}
+
+.fas-section-navigation .fas-nav-icon {
+    -fx-font-size: 15px;
+}
+
+.fas-section-navigation .fas-nav-title {
+    -fx-font-size: 11px;
+}
+
+.fas-section-navigation .fas-nav-shortcut {
+    -fx-font-size: 7px;
+}
+
+/* =========================================================
+   USER
+   ========================================================= */
+
+.fas-user-avatar {
+    -fx-background-color: linear-gradient(
+        to bottom right,
+        #2563EB,
+        #7C3AED
+    );
+
+    -fx-background-radius: 50%;
+
+    -fx-text-fill: #FFFFFF;
+
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+}
+
+.fas-user-name {
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+
+    -fx-text-fill: #0F172A;
+}
+
+.fas-user-username {
+    -fx-font-size: 9px;
+    -fx-text-fill: #64748B;
+}
+
+.fas-logout-button {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 9;
+
+    -fx-background-radius: 9;
+
+    -fx-text-fill: #64748B;
+
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+
+    -fx-cursor: hand;
+
+    -fx-padding: 7 12;
+}
+
+.fas-logout-button:hover {
+    -fx-background-color: #FEF2F2;
+
+    -fx-border-color: #FECACA;
+
+    -fx-text-fill: #B91C1C;
+}
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.fas-header {
+    -fx-background-color: transparent;
+}
+
+.fas-page-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: 800;
+
+    -fx-text-fill: #0F172A;
+}
+
+.fas-page-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748B;
+}
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.fas-progress-title {
+    -fx-font-size: 11px;
+    -fx-text-fill: #64748B;
+}
+
+.fas-progress-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #2563EB;
+}
+
+.fas-progress {
+    -fx-accent: #2563EB;
+    -fx-control-inner-background: #E2E8F0;
+    -fx-background-radius: 6;
+}
+
+/* =========================================================
+   TABS
+   ========================================================= */
+
+.fas-tab-pane {
+    -fx-background-color: transparent;
+
+    -fx-tab-min-height: 0;
+    -fx-tab-max-height: 0;
+
+    -fx-padding: 0;
+}
+
+.fas-tab-pane .tab-header-area {
+    -fx-padding: 0;
+
+    -fx-pref-height: 0;
+    -fx-min-height: 0;
+    -fx-max-height: 0;
+
+    visibility: hidden;
+}
+
+.fas-tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.fas-tab-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.fas-card {
+    -fx-background-color: #FFFFFF;
+
+    -fx-background-radius: 18;
+
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+
+    -fx-padding: 22;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(15, 23, 42, 0.06),
+        14,
+        0.12,
+        0,
+        4
+    );
+}
+
+.fas-card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: 750;
+
+    -fx-text-fill: #0F172A;
+}
+
+.fas-card-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #64748B;
+}
+
+.fas-inner-separator {
+    -fx-border-color: #E2E8F0;
+}
+
+/* =========================================================
+   FORM CONTROLS
+   ========================================================= */
+
+.fas-root .text-field,
+.fas-root .text-area,
+.fas-root .combo-box,
+.fas-root .date-picker {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #CBD5E1;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+
+    -fx-background-radius: 10;
+
+    -fx-padding: 9 12;
+
+    -fx-font-size: 13px;
+
+    -fx-text-fill: #0F172A;
+}
+
+/* =========================================================
+   SESSION INPUT
+   ========================================================= */
+
+.fas-session-input {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #CBD5E1;
+    -fx-border-radius: 10;
+
+    -fx-background-radius: 10;
+}
+
+.fas-session-input:hover {
+    -fx-border-color: #93C5FD;
+}
+
+.fas-session-input:focused {
+    -fx-border-color: #2563EB;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(37, 99, 235, 0.16),
+        10,
+        0.2,
+        0,
+        2
+    );
+}
+
+/* =========================================================
+   PLACEHOLDER
+   ========================================================= */
+
+.fas-root .text-field .prompt-text,
+.fas-root .text-area .prompt-text {
+    -fx-fill: #94A3B8;
+}
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.fas-root .text-field:focused,
+.fas-root .text-area:focused,
+.fas-root .combo-box:focused,
+.fas-root .date-picker:focused {
+    -fx-border-color: #2563EB;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(37, 99, 235, 0.13),
+        10,
+        0.2,
+        0,
+        2
+    );
+}
+
+/* =========================================================
+   TEXT AREA
+   ========================================================= */
+
+.fas-root .text-area {
+    -fx-padding: 0;
+}
+
+.fas-root .text-area .content {
+    -fx-background-color: #FFFFFF;
+
+    -fx-background-radius: 10;
+
+    -fx-padding: 9 12;
+}
+
+/* =========================================================
+   COMBO BOX
+   ========================================================= */
+
+.fas-root .combo-box {
+    -fx-padding: 0;
+}
+
+.fas-root .combo-box .list-cell {
+    -fx-background-color: transparent;
+
+    -fx-text-fill: #334155;
+
+    -fx-font-size: 13px;
+}
+
+.fas-root .combo-box:hover {
+    -fx-border-color: #93C5FD;
+}
+
+.fas-root .combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #DBEAFE;
+    -fx-border-radius: 10;
+}
+
+.fas-root .combo-box-popup .list-cell {
+    -fx-padding: 9 12;
+}
+
+.fas-root .combo-box-popup .list-cell:hover {
+    -fx-background-color: #EFF6FF;
+
+    -fx-text-fill: #1D4ED8;
+}
+
+.fas-root .combo-box-popup .list-cell:selected {
+    -fx-background-color: #DBEAFE;
+
+    -fx-text-fill: #1D4ED8;
+}
+
+/* =========================================================
+   DATE PICKER
+   ========================================================= */
+
+.fas-root .date-picker {
+    -fx-padding: 0;
+}
+
+.fas-root .date-picker:hover {
+    -fx-border-color: #93C5FD;
+}
+
+.fas-root .date-picker .text-field {
+    -fx-border-width: 0;
+    -fx-background-color: transparent;
+    -fx-effect: none;
+}
+
+/* =========================================================
+   FORM LABELS
+   ========================================================= */
+
+.fas-field-label,
+.fas-field-label-required {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+
+    -fx-text-fill: #334155;
+}
+
+.fas-field-label-required {
+    -fx-text-fill: #1D4ED8;
+}
+
+/* =========================================================
+   FIELD HINT
+   ========================================================= */
+
+.fas-field-hint {
+    -fx-font-size: 10px;
+
+    -fx-text-fill: #64748B;
+
+    -fx-background-color: #F1F5F9;
+
+    -fx-background-radius: 7;
+
+    -fx-padding: 5 7;
+}
+
+/* =========================================================
+   RADIO BUTTON
+   ========================================================= */
+
+.fas-root .radio-button {
+    -fx-font-size: 13px;
+    -fx-text-fill: #334155;
+}
+
+.fas-root .radio-button:selected {
+    -fx-text-fill: #1D4ED8;
+}
+
+/* =========================================================
+   CHECKBOX
+   ========================================================= */
+
+.fas-root .check-box {
+    -fx-font-size: 13px;
+    -fx-text-fill: #334155;
+}
+
+.fas-root .check-box:selected {
+    -fx-text-fill: #059669;
+}
+
+.fas-root .check-box .box {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #CBD5E1;
+    -fx-border-radius: 6;
+
+    -fx-background-radius: 6;
+}
+
+.fas-root .check-box:selected .box {
+    -fx-background-color: #10B981;
+    -fx-border-color: #10B981;
+}
+
+.fas-root .check-box:selected .mark {
+    -fx-background-color: #FFFFFF;
+}
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.fas-quick-button {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+
+    -fx-background-radius: 14;
+
+    -fx-cursor: hand;
+}
+
+.fas-quick-button:hover {
+    -fx-background-color: #F8FAFC;
+
+    -fx-border-color: #93C5FD;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(15, 23, 42, 0.10),
+        12,
+        0.15,
+        0,
+        3
+    );
+}
+
+.fas-quick-button:pressed {
+    -fx-background-color: #EFF6FF;
+}
+
+.fas-quick-icon {
+    -fx-font-size: 24px;
+}
+
+.fas-quick-title {
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+
+    -fx-text-fill: #334155;
+}
+
+.fas-quick-shortcut {
+    -fx-font-size: 9px;
+    -fx-text-fill: #94A3B8;
+}
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.fas-primary-button {
+    -fx-background-color: linear-gradient(
+        to right,
+        #2563EB,
+        #3B82F6
+    );
+
+    -fx-background-radius: 10;
+
+    -fx-text-fill: #FFFFFF;
+
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+
+    -fx-padding: 10 18;
+
+    -fx-cursor: hand;
+}
+
+.fas-primary-button:hover {
+    -fx-background-color: linear-gradient(
+        to right,
+        #1D4ED8,
+        #2563EB
+    );
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(37, 99, 235, 0.22),
+        10,
+        0.15,
+        0,
+        3
+    );
+}
+
+.fas-primary-button:pressed {
+    -fx-background-color: #1E40AF;
+}
+
+.fas-primary-button:disabled {
+    -fx-background-color: #93C5FD;
+    -fx-text-fill: #FFFFFF;
+    -fx-opacity: 0.75;
+    -fx-cursor: default;
+}
+
+/* =========================================================
+   SECONDARY
+   ========================================================= */
+
+.fas-secondary-button {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #CBD5E1;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+
+    -fx-background-radius: 10;
+
+    -fx-text-fill: #334155;
+
+    -fx-font-weight: 600;
+
+    -fx-padding: 9 15;
+
+    -fx-cursor: hand;
+}
+
+.fas-secondary-button:hover {
+    -fx-background-color: #EFF6FF;
+
+    -fx-border-color: #93C5FD;
+
+    -fx-text-fill: #1D4ED8;
+}
+
+/* =========================================================
+   WARNING
+   ========================================================= */
+
+.fas-warning-button {
+    -fx-background-color: #FFF7ED;
+
+    -fx-border-color: #FED7AA;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+
+    -fx-background-radius: 10;
+
+    -fx-text-fill: #C2410C;
+
+    -fx-font-weight: 700;
+
+    -fx-padding: 10 16;
+
+    -fx-cursor: hand;
+}
+
+.fas-warning-button:hover {
+    -fx-background-color: #FFEDD5;
+}
+
+/* =========================================================
+   DANGER
+   ========================================================= */
+
+.fas-danger-button {
+    -fx-background-color: #FEF2F2;
+
+    -fx-border-color: #FECACA;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+
+    -fx-background-radius: 10;
+
+    -fx-text-fill: #B91C1C;
+
+    -fx-font-weight: 700;
+
+    -fx-padding: 10 16;
+
+    -fx-cursor: hand;
+}
+
+.fas-danger-button:hover {
+    -fx-background-color: #FEE2E2;
+}
+
+/* =========================================================
+   DELETE
+   ========================================================= */
+
+.fas-delete-button {
+    -fx-background-color: #FEF2F2;
+
+    -fx-text-fill: #B91C1C;
+
+    -fx-border-color: #FECACA;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+
+    -fx-background-radius: 8;
+
+    -fx-padding: 7 14;
+
+    -fx-cursor: hand;
+}
+
+.fas-delete-button:hover {
+    -fx-background-color: #FEE2E2;
+}
+
+/* =========================================================
+   SELECTED FOOD
+   ========================================================= */
+
+.fas-selected-food-button {
+    -fx-background-color: #ECFDF5;
+
+    -fx-border-color: #6EE7B7;
+
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+
+    -fx-background-radius: 10;
+
+    -fx-text-fill: #047857;
+
+    -fx-font-weight: 700;
+
+    -fx-padding: 10 15;
+
+    -fx-cursor: hand;
+}
+
+.fas-selected-food-button:hover {
+    -fx-background-color: #D1FAE5;
+}
+
+/* =========================================================
+   DYNAMIC CARDS
+   ========================================================= */
+
+.fas-dynamic-card {
+    -fx-background-color: #F8FAFC;
+
+    -fx-border-color: #BFDBFE;
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+
+    -fx-background-radius: 14;
+}
+
+.fas-allergy-card {
+    -fx-background-color: #FFF7F7;
+
+    -fx-border-color: #FECACA;
+    -fx-border-width: 1;
+    -fx-border-radius: 14;
+
+    -fx-background-radius: 14;
+}
+
+.fas-dynamic-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+
+    -fx-text-fill: #334155;
+}
+
+/* =========================================================
+   EXAMINATION CARD
+   ========================================================= */
+
+.fas-exam-card {
+    -fx-background-color: #FAF5FF;
+
+    -fx-border-color: #DDD6FE;
+    -fx-border-width: 1;
+
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+}
+
+.fas-exam-preview {
+    -fx-background-color: #F5F3FF;
+
+    -fx-border-color: #C4B5FD;
+    -fx-border-width: 1;
+
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+}
+
+/* =========================================================
+   MEAL CARD
+   ========================================================= */
+
+.fas-meal-card {
+    -fx-background-color: #F0FDFA;
+
+    -fx-border-color: #99F6E4;
+    -fx-border-width: 1;
+
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+}
+
+.fas-meal-card:hover {
+    -fx-background-color: #ECFEFF;
+
+    -fx-border-color: #5EEAD4;
+}
+
+/* =========================================================
+   INNER INFO
+   ========================================================= */
+
+.fas-inner-info {
+    -fx-background-color: #F0FDFA;
+
+    -fx-border-color: #99F6E4;
+    -fx-border-width: 1;
+
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+
+    -fx-padding: 10 12;
+}
+
+/* =========================================================
+   SUGGESTIONS MENU
+   ========================================================= */
+
+.fas-suggestions-menu {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #DBEAFE;
+    -fx-border-width: 1;
+
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(15, 23, 42, 0.16),
+        14,
+        0.15,
+        0,
+        4
+    );
+}
+
+.fas-suggestion-item {
+    -fx-padding: 9 12;
+
+    -fx-text-fill: #334155;
+
+    -fx-font-size: 12px;
+}
+
+.fas-suggestion-item:hover {
+    -fx-background-color: #EFF6FF;
+}
+
+.fas-suggestion-add {
+    -fx-padding: 9 12;
+
+    -fx-text-fill: #C2410C;
+
+    -fx-font-weight: 700;
+}
+
+.fas-suggestion-add:hover {
+    -fx-background-color: #FFF7ED;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.fas-footer {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #CBD5E1;
+    -fx-border-width: 1 0 0 0;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.fas-status-label {
+    -fx-font-size: 11px;
+
+    -fx-text-fill: #475569;
+
+    -fx-font-weight: 600;
+}
+
+.fas-status-dot {
+    -fx-background-color: #10B981;
+
+    -fx-background-radius: 100;
+
+    -fx-min-width: 8px;
+    -fx-min-height: 8px;
+
+    -fx-max-width: 8px;
+    -fx-max-height: 8px;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(16, 185, 129, 0.35),
+        5,
+        0.2,
+        0,
+        0
+    );
+}
+
+/* =========================================================
+   FOOTER SHORTCUT
+   ========================================================= */
+
+.fas-footer-shortcut {
+    -fx-background-color: #EFF6FF;
+
+    -fx-background-radius: 7;
+
+    -fx-border-color: #DBEAFE;
+    -fx-border-radius: 7;
+
+    -fx-text-fill: #2563EB;
+
+    -fx-font-size: 10px;
+
+    -fx-padding: 5 8;
+}
+
+/* =========================================================
+   SCROLL
+   ========================================================= */
+
+.fas-scroll {
+    -fx-background-color: transparent;
+
+    -fx-border-color: transparent;
+}
+
+.fas-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.fas-scroll .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.fas-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.fas-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #94A3B8;
+
+    -fx-background-radius: 8;
+}
+
+.fas-scroll .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #64748B;
+}
+
+.fas-scroll .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.fas-scroll .scroll-bar:horizontal .thumb {
+    -fx-background-color: #94A3B8;
+
+    -fx-background-radius: 8;
+}
+
+/* =========================================================
+   TABLE VIEW
+   ========================================================= */
+
+.fas-root .table-view {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 12;
+
+    -fx-background-radius: 12;
+}
+
+.fas-root .table-view .column-header-background {
+    -fx-background-color: linear-gradient(
+        to right,
+        #EFF6FF,
+        #F5F3FF
+    );
+
+    -fx-background-radius: 12 12 0 0;
+}
+
+.fas-root .table-view .column-header {
+    -fx-background-color: transparent;
+
+    -fx-border-color: #DBEAFE;
+}
+
+.fas-root .table-view .column-header .label {
+    -fx-text-fill: #1E3A8A;
+
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+.fas-root .table-view .table-row-cell {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: transparent transparent #F1F5F9 transparent;
+}
+
+.fas-root .table-view .table-row-cell:hover {
+    -fx-background-color: #F8FAFC;
+}
+
+.fas-root .table-view .table-row-cell:selected {
+    -fx-background-color: #DBEAFE;
+
+    -fx-text-fill: #1E3A8A;
+}
+
+/* =========================================================
+   LIST VIEW
+   ========================================================= */
+
+.fas-root .list-view {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 10;
+
+    -fx-background-radius: 10;
+}
+
+.fas-root .list-cell {
+    -fx-padding: 10 12;
+
+    -fx-text-fill: #334155;
+}
+
+.fas-root .list-cell:hover {
+    -fx-background-color: #EFF6FF;
+}
+
+.fas-root .list-cell:selected {
+    -fx-background-color: #DBEAFE;
+
+    -fx-text-fill: #1D4ED8;
+}
+
+/* =========================================================
+   CONTEXT MENU
+   ========================================================= */
+
+.fas-context-menu {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 1;
+
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+
+    -fx-padding: 5;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(15, 23, 42, 0.16),
+        14,
+        0.15,
+        0,
+        4
+    );
+}
+
+.fas-context-menu-item {
+    -fx-padding: 9 12;
+
+    -fx-text-fill: #334155;
+
+    -fx-font-size: 12px;
+}
+
+.fas-context-menu-item:hover {
+    -fx-background-color: #EFF6FF;
+
+    -fx-text-fill: #1D4ED8;
+}
+
+/* =========================================================
+   TOOLTIP
+   ========================================================= */
+
+.tooltip {
+    -fx-background-color: #0F172A;
+
+    -fx-text-fill: #FFFFFF;
+
+    -fx-background-radius: 8;
+
+    -fx-padding: 8 10;
+
+    -fx-font-size: 10px;
+}
+
+/* =========================================================
+   ALERT
+   ========================================================= */
+
+.fas-alert {
+    -fx-background-color: #FFFFFF;
+}
+
+.fas-alert .content.label {
+    -fx-text-fill: #334155;
+
+    -fx-font-size: 13px;
+}
+
+.fas-alert .button {
+    -fx-background-color: #2563EB;
+
+    -fx-background-radius: 8;
+
+    -fx-text-fill: #FFFFFF;
+
+    -fx-font-weight: bold;
+
+    -fx-cursor: hand;
+}
+
+.fas-alert .button:hover {
+    -fx-background-color: #1D4ED8;
+}
+
+/* =========================================================
+   STATUS COLORS
+   ========================================================= */
+
+.fas-status-success {
+    -fx-background-color: #ECFDF5;
+    -fx-border-color: #A7F3D0;
+    -fx-text-fill: #047857;
+}
+
+.fas-status-warning {
+    -fx-background-color: #FFFBEB;
+    -fx-border-color: #FDE68A;
+    -fx-text-fill: #B45309;
+}
+
+.fas-status-danger {
+    -fx-background-color: #FEF2F2;
+    -fx-border-color: #FECACA;
+    -fx-text-fill: #B91C1C;
+}
+
+.fas-status-info {
+    -fx-background-color: #F0FDFA;
+    -fx-border-color: #99F6E4;
+    -fx-text-fill: #0F766E;
+}
+
+.fas-status-purple {
+    -fx-background-color: #F5F3FF;
+    -fx-border-color: #DDD6FE;
+    -fx-text-fill: #6D28D9;
+}
+
+/* =========================================================
+   SECTION COLOR HELPERS
+   ========================================================= */
+
+.fas-section-blue {
+    -fx-background-color: #EFF6FF;
+    -fx-border-color: #BFDBFE;
+    -fx-text-fill: #1D4ED8;
+}
+
+.fas-section-cyan {
+    -fx-background-color: #ECFEFF;
+    -fx-border-color: #A5F3FC;
+    -fx-text-fill: #0E7490;
+}
+
+.fas-section-green {
+    -fx-background-color: #ECFDF5;
+    -fx-border-color: #A7F3D0;
+    -fx-text-fill: #047857;
+}
+
+.fas-section-purple {
+    -fx-background-color: #F5F3FF;
+    -fx-border-color: #DDD6FE;
+    -fx-text-fill: #6D28D9;
+}
+
+.fas-section-orange {
+    -fx-background-color: #FFF7ED;
+    -fx-border-color: #FED7AA;
+    -fx-text-fill: #C2410C;
+}
+
+/* =========================================================
+   SPECIAL HOVER COLORS
+   ========================================================= */
+
+.fas-hover-green:hover {
+    -fx-background-color: #ECFDF5;
+    -fx-border-color: #6EE7B7;
+}
+
+.fas-hover-purple:hover {
+    -fx-background-color: #F5F3FF;
+    -fx-border-color: #C4B5FD;
+}
+
+.fas-hover-orange:hover {
+    -fx-background-color: #FFF7ED;
+    -fx-border-color: #FDBA74;
+}
+
+.fas-hover-red:hover {
+    -fx-background-color: #FEF2F2;
+    -fx-border-color: #FCA5A5;
+}
+
+/* =========================================================
+   DISABLED
+   ========================================================= */
+
+.fas-root .text-field:disabled,
+.fas-root .text-area:disabled,
+.fas-root .combo-box:disabled,
+.fas-root .date-picker:disabled {
+    -fx-background-color: #F8FAFC;
+
+    -fx-border-color: #E2E8F0;
+
+    -fx-text-fill: #94A3B8;
+}
+/* =========================================================
+   SUBSCRIPTION
+   ========================================================= */
+
+.fas-status-card {
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+
+    -fx-border-width: 1;
+}
+
+/* ---------------------------------------------------------
+   BLUE
+   --------------------------------------------------------- */
+
+.fas-status-card.fas-section-blue {
+    -fx-background-color: #EFF6FF;
+    -fx-border-color: #BFDBFE;
+}
+
+/* ---------------------------------------------------------
+   CYAN
+   --------------------------------------------------------- */
+
+.fas-status-card.fas-section-cyan {
+    -fx-background-color: #ECFEFF;
+    -fx-border-color: #A5F3FC;
+}
+
+/* ---------------------------------------------------------
+   GREEN
+   --------------------------------------------------------- */
+
+.fas-status-card.fas-section-green {
+    -fx-background-color: #ECFDF5;
+    -fx-border-color: #A7F3D0;
+}
+
+/* ---------------------------------------------------------
+   ORANGE
+   --------------------------------------------------------- */
+
+.fas-status-card.fas-section-orange {
+    -fx-background-color: #FFF7ED;
+    -fx-border-color: #FED7AA;
+}
+
+/* ---------------------------------------------------------
+   PURPLE
+   --------------------------------------------------------- */
+
+.fas-status-card.fas-section-purple {
+    -fx-background-color: #F5F3FF;
+    -fx-border-color: #DDD6FE;
+}
+
+/* ---------------------------------------------------------
+   TEAL
+   --------------------------------------------------------- */
+
+.fas-status-card.fas-section-teal {
+    -fx-background-color: #F0FDFA;
+    -fx-border-color: #99F6E4;
+}
+
+/* =========================================================
+   SUBSCRIPTION TABLE
+   ========================================================= */
+
+.fas-subscription-table {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+}
+
+/* =========================================================
+   SUBSCRIPTION PLAN LIST
+   ========================================================= */
+
+.fas-subscription-plan-list {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #CBD5E1;
+    -fx-border-radius: 12;
+
+    -fx-background-radius: 12;
+}
+
+.fas-subscription-plan-list .list-cell {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: transparent transparent #E2E8F0 transparent;
+
+    -fx-padding: 4;
+}
+
+.fas-subscription-plan-list .list-cell:hover {
+    -fx-background-color: #F8FAFC;
+}
+
+.fas-subscription-plan-list .list-cell:selected {
+    -fx-background-color: #EFF6FF;
+
+    -fx-border-color: #93C5FD;
+}
+/* =========================================================
+   HOME ROOT
+   ========================================================= */
+
+.fas-home-root {
+    -fx-background-color: #F1F5F9;
+}
+
+/* =========================================================
+   HOME SIDEBAR
+   ========================================================= */
+
+.fas-home-sidebar {
+    -fx-background-color: #FFFFFF;
+
+    -fx-border-color: #E2E8F0;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* =========================================================
+   HOME BRAND
+   ========================================================= */
+
+.fas-home-brand {
+    -fx-background-color: linear-gradient(
+        to bottom right,
+        #EFF6FF,
+        #F5F3FF
+    );
+
+    -fx-background-radius: 16;
+
+    -fx-border-color: #DBEAFE;
+    -fx-border-width: 1;
+    -fx-border-radius: 16;
+
+    -fx-padding: 15;
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+#logo {
+
+    -fx-background-color: linear-gradient(
+        to bottom right,
+        #8BB531,
+        #C86C2D
+    );
+
+    -fx-background-image: url("../img/img.png");
+
+    -fx-background-repeat: no-repeat;
+
+    -fx-background-position: center;
+
+    -fx-background-size: 70%;
+
+    -fx-background-radius: 60;
+
+    -fx-border-radius: 60;
+
+    -fx-border-color: #8BB531;
+
+    -fx-border-width: 1.5px;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(15, 23, 42, 0.18),
+        12,
+        0.15,
+        0,
+        4
+    );
+}
+
+/* =========================================================
+   BRAND TEXT
+   ========================================================= */
+
+.fas-home-brand-title {
+    -fx-font-size: 24px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #2563EB;
+}
+
+.fas-home-brand-subtitle {
+    -fx-font-size: 9px;
+
+    -fx-text-fill: #64748B;
+}
+
+/* =========================================================
+   MENU HEADER
+   ========================================================= */
+
+.fas-home-menu-header {
+    -fx-padding: 10 8 4 8;
+}
+
+.fas-home-menu-title {
+    -fx-font-size: 13px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #0F172A;
+}
+
+.fas-home-menu-subtitle {
+    -fx-font-size: 10px;
+
+    -fx-text-fill: #94A3B8;
+}
+
+/* =========================================================
+   HOME NAVIGATION
+   ========================================================= */
+
+.fas-home-nav-button {
+
+    -fx-background-color: transparent;
+
+    -fx-background-radius: 11;
+
+    -fx-border-color: transparent;
+
+    -fx-border-width: 1;
+
+    -fx-border-radius: 11;
+
+    -fx-text-fill: #334155;
+
+    -fx-font-size: 12px;
+
+    -fx-font-weight: bold;
+
+    -fx-alignment: CENTER_RIGHT;
+
+    -fx-cursor: hand;
+
+    -fx-padding: 8 16;
+}
+
+.fas-home-nav-button:hover {
+
+    -fx-background-color: #EFF6FF;
+
+    -fx-border-color: #BFDBFE;
+
+    -fx-text-fill: #1D4ED8;
+}
+
+.fas-home-nav-button:pressed {
+
+    -fx-background-color: #DBEAFE;
+}
+
+/* =========================================================
+   ACTIVE BUTTON
+   ========================================================= */
+
+.fas-home-nav-button.fas-home-nav-active {
+
+    -fx-background-color: linear-gradient(
+        to right,
+        #2563EB,
+        #3B82F6
+    );
+
+    -fx-border-color: #2563EB;
+
+    -fx-text-fill: #FFFFFF;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(37, 99, 235, 0.22),
+        10,
+        0.15,
+        0,
+        3
+    );
+}
+
+.fas-home-nav-button.fas-home-nav-active:hover {
+
+    -fx-background-color: linear-gradient(
+        to right,
+        #1D4ED8,
+        #2563EB
+    );
+
+    -fx-border-color: #1D4ED8;
+
+    -fx-text-fill: #FFFFFF;
+}
+
+/* =========================================================
+   HOME ICON
+   ========================================================= */
+
+.fas-home-nav-icon {
+    -fx-font-size: 18px;
+}
+
+/* =========================================================
+   SIDEBAR FOOTER
+   ========================================================= */
+
+.fas-home-sidebar-footer {
+
+    -fx-background-color: #F8FAFC;
+
+    -fx-background-radius: 10;
+
+    -fx-border-color: #E2E8F0;
+
+    -fx-border-width: 1;
+
+    -fx-border-radius: 10;
+
+    -fx-padding: 10;
+}
+
+.fas-home-footer-title {
+
+    -fx-font-size: 11px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #2563EB;
+}
+
+.fas-home-footer-subtitle {
+
+    -fx-font-size: 8px;
+
+    -fx-text-fill: #94A3B8;
+}
+
+/* =========================================================
+   HOME CONTENT
+   ========================================================= */
+
+.fas-home-content {
+
+    -fx-background-color: #F1F5F9;
+}
+
+/* =========================================================
+   WELCOME
+   ========================================================= */
+
+.fas-home-welcome {
+
+    -fx-background-color: transparent;
+
+    -fx-padding: 35;
+}
+
+.fas-home-welcome-logo {
+
+    -fx-font-size: 58px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #2563EB;
+}
+
+/* =========================================================
+   WELCOME CARD
+   ========================================================= */
+
+.fas-home-welcome-card {
+
+    -fx-background-color: #FFFFFF;
+
+    -fx-background-radius: 20;
+
+    -fx-border-color: #E2E8F0;
+
+    -fx-border-width: 1;
+
+    -fx-border-radius: 20;
+
+    -fx-padding: 28;
+
+    -fx-effect: dropshadow(
+        gaussian,
+        rgba(15, 23, 42, 0.08),
+        22,
+        0.15,
+        0,
+        6
+    );
+}
+
+.fas-home-welcome-title {
+
+    -fx-font-size: 24px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #0F172A;
+}
+
+.fas-home-welcome-subtitle {
+
+    -fx-font-size: 14px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #2563EB;
+}
+
+.fas-home-welcome-description {
+
+    -fx-font-size: 12px;
+
+    -fx-text-fill: #64748B;
+
+    -fx-text-alignment: CENTER;
+}
+/* =====================================================
+   HOME TYPOGRAPHY
+   ===================================================== */
+
+.fas-home-logo-text {
+    -fx-font-size: 72px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2563EB;
+}
+
+.fas-home-logo-subtitle {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #64748B;
+    -fx-letter-spacing: 0.5px;
+}
+
+.fas-home-divider {
+    -fx-background-color: #CBD5E1;
+    -fx-background-radius: 5;
+}
+
+/* =====================================================
+   MAIN WELCOME
+   ===================================================== */
+
+.fas-home-main-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0F172A;
+}
+
+.fas-home-main-description {
+    -fx-font-size: 15px;
+    -fx-text-fill: #475569;
+    -fx-line-spacing: 5px;
+}
+
+/* =====================================================
+   TEXT SECTIONS
+   ===================================================== */
+
+.fas-home-text-section {
+    -fx-padding: 4 0 0 0;
+}
+
+.fas-home-section-heading {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2563EB;
+}
+
+.fas-home-team-heading {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #10B981;
+}
+
+.fas-home-section-description {
+    -fx-font-size: 14px;
+    -fx-text-fill: #475569;
+    -fx-line-spacing: 5px;
+}
+
+.fas-home-closing-text {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #8B5CF6;
+    -fx-padding: 8 0 0 0;
+}
+.fas-home-content {
+    -fx-background-image: url("../img/home-background.png");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}

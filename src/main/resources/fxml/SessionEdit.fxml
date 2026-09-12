@@ -1,0 +1,1202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.ComboBox?>
+        <?import javafx.scene.control.DatePicker?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.ScrollPane?>
+        <?import javafx.scene.control.Tab?>
+        <?import javafx.scene.control.TabPane?>
+        <?import javafx.scene.control.TableColumn?>
+        <?import javafx.scene.control.TableView?>
+        <?import javafx.scene.control.TextArea?>
+        <?import javafx.scene.control.TextField?>
+        <?import javafx.scene.control.TitledPane?>
+        <?import javafx.scene.layout.AnchorPane?>
+        <?import javafx.scene.layout.ColumnConstraints?>
+        <?import javafx.scene.layout.GridPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.RowConstraints?>
+        <?import javafx.scene.layout.VBox?>
+        <?import javafx.scene.text.Font?>
+
+<AnchorPane
+        nodeOrientation="RIGHT_TO_LEFT"
+        prefHeight="780.0"
+        prefWidth="1000.0"
+        style="-fx-background-color: #f8fafc;"
+        xmlns="http://javafx.com/javafx/21"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="user_interface.offer.SessionEditController">
+
+    <children>
+
+        <!-- =====================================================
+             HEADER
+        ====================================================== -->
+
+        <HBox
+                alignment="CENTER_LEFT"
+                prefHeight="65.0"
+                spacing="15.0"
+                style="-fx-background-color: #0f172a;
+                       -fx-background-radius: 10;
+                       -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);"
+                AnchorPane.leftAnchor="15.0"
+                AnchorPane.rightAnchor="15.0"
+                AnchorPane.topAnchor="15.0">
+
+            <padding>
+                <Insets
+                        bottom="15.0"
+                        left="20.0"
+                        right="20.0"
+                        top="15.0"/>
+            </padding>
+
+            <children>
+
+                <Label
+                        style="-fx-font-weight: bold;
+                               -fx-text-fill: #ffffff;"
+                        text="🛠️ تعديل بيانات الجلسة رقم:">
+
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+
+                </Label>
+
+
+                <Label
+                        fx:id="lblSessionId"
+                        style="-fx-font-weight: bold;
+                               -fx-text-fill: #fbbf24;"
+                        text="#">
+
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+
+                </Label>
+
+
+                <Label
+                        HBox.hgrow="ALWAYS"
+                        style="-fx-font-weight: bold;
+                               -fx-text-fill: #94a3b8;
+                               -fx-padding: 0 15 0 0;"
+                        text="|   العميل:">
+
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+
+                </Label>
+
+
+                <Label
+                        fx:id="lblClientId"
+                        style="-fx-font-weight: bold;
+                               -fx-text-fill: #38bdf8;"
+                        text="غير معروف">
+
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+
+                </Label>
+
+            </children>
+
+        </HBox>
+
+
+        <!-- =====================================================
+             MAIN TAB PANE
+        ====================================================== -->
+
+        <TabPane
+                fx:id="mainTabPane"
+                layoutY="95.0"
+                tabClosingPolicy="UNAVAILABLE"
+                style="-fx-background-color: transparent;"
+                AnchorPane.bottomAnchor="80.0"
+                AnchorPane.leftAnchor="15.0"
+                AnchorPane.rightAnchor="15.0"
+                AnchorPane.topAnchor="95.0">
+
+            <tabs>
+
+                <!-- =================================================
+                     TAB 1 : SESSION
+                ================================================== -->
+
+                <Tab
+                        text="📝 تفاصيل الجلسة"
+                        style="-fx-font-weight: bold;
+                               -fx-font-size: 14px;">
+
+                    <content>
+
+                        <ScrollPane
+                                fitToWidth="true"
+                                style="-fx-background-color: transparent;
+                                       -fx-padding: 15;">
+
+                            <content>
+
+                                <VBox spacing="15.0">
+
+                                    <children>
+
+                                        <TitledPane
+                                                alignment="CENTER_RIGHT"
+                                                collapsible="false"
+                                                text="البيانات المالية والزمنية الأساسية">
+
+                                            <font>
+                                                <Font
+                                                        name="System Bold"
+                                                        size="14.0"/>
+                                            </font>
+
+                                            <content>
+
+                                                <GridPane
+                                                        hgap="20.0"
+                                                        vgap="15.0">
+
+                                                    <columnConstraints>
+
+                                                        <ColumnConstraints
+                                                                minWidth="130.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="250.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="130.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="250.0"/>
+
+                                                    </columnConstraints>
+
+                                                    <children>
+
+                                                        <Label
+                                                                style="-fx-text-fill: #475569;
+                                                                       -fx-font-weight: bold;"
+                                                                text="💵 سعر الجلسة (ريال):"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtPrice"
+                                                                promptText="مثال: 5000"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-text-fill: #475569;
+                                                                       -fx-font-weight: bold;"
+                                                                text="⏱️ مدة الجلسة (HH:mm):"
+                                                                GridPane.columnIndex="2"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtDuration"
+                                                                promptText="مثال: 01:00"
+                                                                GridPane.columnIndex="3"
+                                                                GridPane.rowIndex="0"/>
+
+                                                    </children>
+
+                                                </GridPane>
+
+                                            </content>
+
+                                        </TitledPane>
+
+
+                                        <TitledPane
+                                                alignment="CENTER_RIGHT"
+                                                collapsible="false"
+                                                text="ملاحظات وتوجيهات الجلسة">
+
+                                            <font>
+                                                <Font
+                                                        name="System Bold"
+                                                        size="14.0"/>
+                                            </font>
+
+                                            <content>
+
+                                                <VBox spacing="10.0">
+
+                                                    <children>
+
+                                                        <TextArea
+                                                                fx:id="txtNotes"
+                                                                prefHeight="180.0"
+                                                                promptText="اكتب ملاحظات الجلسة..."
+                                                                wrapText="true"/>
+
+                                                    </children>
+
+                                                </VBox>
+
+                                            </content>
+
+                                        </TitledPane>
+
+                                    </children>
+
+                                </VBox>
+
+                            </content>
+
+                        </ScrollPane>
+
+                    </content>
+
+                </Tab>
+
+
+                <!-- =================================================
+                     TAB 2 : BODY DATA
+                ================================================== -->
+
+                <Tab
+                        text="📐 التكوين البدني والمحيطات"
+                        style="-fx-font-weight: bold;
+                               -fx-font-size: 14px;">
+
+                    <content>
+
+                        <ScrollPane
+                                fitToWidth="true"
+                                style="-fx-background-color: transparent;
+                                       -fx-padding: 15;">
+
+                            <content>
+
+                                <VBox spacing="15.0">
+
+                                    <children>
+
+                                        <TitledPane
+                                                alignment="CENTER_RIGHT"
+                                                collapsible="false"
+                                                text="تحديث مؤشرات تركيب الجسم">
+
+                                            <font>
+                                                <Font
+                                                        name="System Bold"
+                                                        size="14.0"/>
+                                            </font>
+
+                                            <content>
+
+                                                <GridPane
+                                                        hgap="15.0"
+                                                        vgap="15.0">
+
+                                                    <columnConstraints>
+
+                                                        <ColumnConstraints
+                                                                minWidth="130.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="170.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="130.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="170.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="130.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="170.0"/>
+
+                                                    </columnConstraints>
+
+                                                    <rowConstraints>
+
+                                                        <RowConstraints/>
+
+                                                        <RowConstraints/>
+
+                                                        <RowConstraints/>
+
+                                                    </rowConstraints>
+
+                                                    <children>
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="الطول (سم):"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtHeight"
+                                                                promptText="الطول"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="الوزن (كجم):"
+                                                                GridPane.columnIndex="2"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtWeight"
+                                                                promptText="الوزن"
+                                                                GridPane.columnIndex="3"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="نسبة الدهون (%):"
+                                                                GridPane.columnIndex="4"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtFatPercentage"
+                                                                promptText="نسبة الدهون"
+                                                                GridPane.columnIndex="5"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="SMM:"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="1"/>
+
+                                                        <TextField
+                                                                fx:id="txtSMM"
+                                                                promptText="SMM"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="1"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="العضلات الإجمالية:"
+                                                                GridPane.columnIndex="2"
+                                                                GridPane.rowIndex="1"/>
+
+                                                        <TextField
+                                                                fx:id="txtMuscleMass"
+                                                                promptText="كتلة العضلات"
+                                                                GridPane.columnIndex="3"
+                                                                GridPane.rowIndex="1"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="معامل النشاط:"
+                                                                GridPane.columnIndex="4"
+                                                                GridPane.rowIndex="1"/>
+
+                                                        <TextField
+                                                                fx:id="txtActivityFactor"
+                                                                promptText="مثال: 1.375"
+                                                                GridPane.columnIndex="5"
+                                                                GridPane.rowIndex="1"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="النشاط البدني:"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="2"/>
+
+                                                        <ComboBox
+                                                                fx:id="comboPhysicalActivity"
+                                                                maxWidth="1.7976931348623157E308"
+                                                                editable="true"
+                                                                promptText="اختر النشاط"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="2"/>
+
+                                                    </children>
+
+                                                </GridPane>
+
+                                            </content>
+
+                                        </TitledPane>
+
+
+                                        <TitledPane
+                                                alignment="CENTER_RIGHT"
+                                                collapsible="false"
+                                                text="محيطات الجسم السبعة (سم)">
+
+                                            <font>
+                                                <Font
+                                                        name="System Bold"
+                                                        size="14.0"/>
+                                            </font>
+
+                                            <content>
+
+                                                <GridPane
+                                                        hgap="15.0"
+                                                        vgap="15.0">
+
+                                                    <columnConstraints>
+
+                                                        <ColumnConstraints
+                                                                minWidth="110.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="150.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="110.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="150.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="110.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="150.0"/>
+
+                                                    </columnConstraints>
+
+                                                    <rowConstraints>
+
+                                                        <RowConstraints/>
+
+                                                        <RowConstraints/>
+
+                                                        <RowConstraints/>
+
+                                                    </rowConstraints>
+
+                                                    <children>
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="محيط الذراع:"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtArm"
+                                                                promptText="Arm"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="محيط الصدر:"
+                                                                GridPane.columnIndex="2"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtChest"
+                                                                promptText="Chest"
+                                                                GridPane.columnIndex="3"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="محيط الخصر:"
+                                                                GridPane.columnIndex="4"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtWaist"
+                                                                promptText="Waist"
+                                                                GridPane.columnIndex="5"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="محيط البطن:"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="1"/>
+
+                                                        <TextField
+                                                                fx:id="txtAbdominal"
+                                                                promptText="Abdominal"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="1"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="محيط الورك:"
+                                                                GridPane.columnIndex="2"
+                                                                GridPane.rowIndex="1"/>
+
+                                                        <TextField
+                                                                fx:id="txtHip"
+                                                                promptText="Hip"
+                                                                GridPane.columnIndex="3"
+                                                                GridPane.rowIndex="1"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="محيط الفخذ:"
+                                                                GridPane.columnIndex="4"
+                                                                GridPane.rowIndex="1"/>
+
+                                                        <TextField
+                                                                fx:id="txtThigh"
+                                                                promptText="Thigh"
+                                                                GridPane.columnIndex="5"
+                                                                GridPane.rowIndex="1"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="محيط الساق:"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="2"/>
+
+                                                        <TextField
+                                                                fx:id="txtCalf"
+                                                                promptText="Calf"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="2"/>
+
+                                                    </children>
+
+                                                </GridPane>
+
+                                            </content>
+
+                                        </TitledPane>
+
+                                    </children>
+
+                                </VBox>
+
+                            </content>
+
+                        </ScrollPane>
+
+                    </content>
+
+                </Tab>
+
+
+                <!-- =================================================
+                     TAB 3 : NUTRITION PLAN
+                ================================================== -->
+
+                <Tab
+                        text="🥦 الخطة الغذائية والماكروز"
+                        style="-fx-font-weight: bold;
+                               -fx-font-size: 14px;">
+
+                    <content>
+
+                        <ScrollPane
+                                fitToWidth="true"
+                                style="-fx-background-color: transparent;
+                                       -fx-padding: 15;">
+
+                            <content>
+
+                                <VBox spacing="15.0">
+
+                                    <children>
+
+                                        <TitledPane
+                                                alignment="CENTER_RIGHT"
+                                                collapsible="false"
+                                                text="إعدادات وتواريخ الخطة">
+
+                                            <font>
+                                                <Font
+                                                        name="System Bold"
+                                                        size="14.0"/>
+                                            </font>
+
+                                            <content>
+
+                                                <GridPane
+                                                        hgap="20.0"
+                                                        vgap="15.0">
+
+                                                    <columnConstraints>
+
+                                                        <ColumnConstraints
+                                                                minWidth="110.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="180.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="110.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="180.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="110.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="180.0"/>
+
+                                                    </columnConstraints>
+
+                                                    <rowConstraints>
+
+                                                        <RowConstraints/>
+
+                                                        <RowConstraints/>
+
+                                                    </rowConstraints>
+
+                                                    <children>
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="الهدف:"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtPlanGoal"
+                                                                promptText="الهدف"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="حالة الخطة:"
+                                                                GridPane.columnIndex="2"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <ComboBox
+                                                                fx:id="comboPlanStatus"
+                                                                maxWidth="1.7976931348623157E308"
+                                                                promptText="اختر الحالة"
+                                                                GridPane.columnIndex="3"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="توزيع الوجبات:"
+                                                                GridPane.columnIndex="4"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtMealDistribution"
+                                                                promptText="Breakfast,Lunch,Dinner,Snack"
+                                                                GridPane.columnIndex="5"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="تاريخ البدء:"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="1"/>
+
+                                                        <DatePicker
+                                                                fx:id="dpStartDate"
+                                                                maxWidth="1.7976931348623157E308"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="1"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="تاريخ الانتهاء:"
+                                                                GridPane.columnIndex="2"
+                                                                GridPane.rowIndex="1"/>
+
+                                                        <DatePicker
+                                                                fx:id="dpEndDate"
+                                                                maxWidth="1.7976931348623157E308"
+                                                                GridPane.columnIndex="3"
+                                                                GridPane.rowIndex="1"/>
+
+                                                    </children>
+
+                                                </GridPane>
+
+                                            </content>
+
+                                        </TitledPane>
+
+
+                                        <TitledPane
+                                                alignment="CENTER_RIGHT"
+                                                collapsible="false"
+                                                text="المغذيات الكبرى (Macros)">
+
+                                            <font>
+                                                <Font
+                                                        name="System Bold"
+                                                        size="14.0"/>
+                                            </font>
+
+                                            <content>
+
+                                                <HBox
+                                                        alignment="CENTER_LEFT"
+                                                        spacing="25.0">
+
+                                                    <children>
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="🍗 البروتين (جم):"/>
+
+                                                        <TextField
+                                                                fx:id="txtProteinAmount"
+                                                                prefWidth="120.0"
+                                                                promptText="البروتين"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="🌾 الكربوهيدرات (جم):"/>
+
+                                                        <TextField
+                                                                fx:id="txtCarbAmount"
+                                                                prefWidth="120.0"
+                                                                promptText="الكربوهيدرات"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="🥑 الدهون (جم):"/>
+
+                                                        <TextField
+                                                                fx:id="txtFatAmount"
+                                                                prefWidth="120.0"
+                                                                promptText="الدهون"/>
+
+                                                    </children>
+
+                                                </HBox>
+
+                                            </content>
+
+                                        </TitledPane>
+
+
+                                        <!-- ======================================
+                                             CALORIES / WATER / MEALS / NOTES
+                                        ======================================= -->
+
+                                        <TitledPane
+                                                alignment="CENTER_RIGHT"
+                                                collapsible="false"
+                                                text="السعرات والماء وعدد الوجبات والملاحظات">
+
+                                            <font>
+                                                <Font
+                                                        name="System Bold"
+                                                        size="14.0"/>
+                                            </font>
+
+                                            <content>
+
+                                                <GridPane
+                                                        hgap="15.0"
+                                                        vgap="15.0">
+
+                                                    <columnConstraints>
+
+                                                        <ColumnConstraints
+                                                                minWidth="130.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="180.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="130.0"/>
+
+                                                        <ColumnConstraints
+                                                                minWidth="180.0"/>
+
+                                                    </columnConstraints>
+
+                                                    <children>
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="إجمالي السعرات:"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtTotalCalories"
+                                                                promptText="السعرات"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="الاحتياج من الماء:"
+                                                                GridPane.columnIndex="2"
+                                                                GridPane.rowIndex="0"/>
+
+                                                        <TextField
+                                                                fx:id="txtWaterIntake"
+                                                                promptText="مثال: 2.2 Ltr"
+                                                                GridPane.columnIndex="3"
+                                                                GridPane.rowIndex="0"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="عدد الوجبات:"
+                                                                GridPane.columnIndex="0"
+                                                                GridPane.rowIndex="1"/>
+
+                                                        <TextField
+                                                                fx:id="txtMealsCount"
+                                                                promptText="عدد الوجبات"
+                                                                GridPane.columnIndex="1"
+                                                                GridPane.rowIndex="1"/>
+
+
+                                                        <Label
+                                                                style="-fx-font-weight: bold;"
+                                                                text="ملاحظات الخطة:"
+                                                                GridPane.columnIndex="2"
+                                                                GridPane.rowIndex="1"/>
+
+                                                        <TextArea
+                                                                fx:id="txtNote"
+                                                                prefHeight="80.0"
+                                                                promptText="ملاحظات الخطة"
+                                                                wrapText="true"
+                                                                GridPane.columnIndex="3"
+                                                                GridPane.rowIndex="1"/>
+
+                                                    </children>
+
+                                                </GridPane>
+
+                                            </content>
+
+                                        </TitledPane>
+
+
+                                        <!-- ======================================
+                                             MEAL DISTRIBUTION BUTTON
+                                        ======================================= -->
+
+                                        <Button
+                                                mnemonicParsing="false"
+                                                onAction="#handleOpenMealDistribution"
+                                                maxWidth="1.7976931348623157E308"
+                                                prefHeight="48.0"
+                                                style="-fx-background-color: #1565C0;
+                                                       -fx-text-fill: white;
+                                                       -fx-font-weight: bold;
+                                                       -fx-font-size: 14px;
+                                                       -fx-padding: 8 20;
+                                                       -fx-background-radius: 6;
+                                                       -fx-cursor: hand;"
+                                                text="🍽️ إضافة وتوزيع الأطعمة"/>
+
+                                    </children>
+
+                                </VBox>
+
+                            </content>
+
+                        </ScrollPane>
+
+                    </content>
+
+                </Tab>
+
+
+                <!-- =================================================
+                     TAB 4 : EXAMINATIONS
+                ================================================== -->
+
+                <Tab
+                        text="🔬 إدارة الفحوصات والصور"
+                        style="-fx-font-weight: bold;
+                               -fx-font-size: 14px;">
+
+                    <content>
+
+                        <VBox
+                                spacing="15.0"
+                                style="-fx-padding: 15;">
+
+                            <children>
+
+                                <TableView
+                                        fx:id="tableExaminations"
+                                        prefHeight="300.0"
+                                        VBox.vgrow="ALWAYS">
+
+                                    <columns>
+
+                                        <TableColumn
+                                                fx:id="colExamId"
+                                                prefWidth="90.0"
+                                                text="رقم الفحص"/>
+
+                                        <TableColumn
+                                                fx:id="colExamName"
+                                                prefWidth="200.0"
+                                                text="اسم الفحص الطبي"/>
+
+                                        <TableColumn
+                                                fx:id="colExamNotes"
+                                                prefWidth="280.0"
+                                                text="ملاحظات الفحص"/>
+
+                                        <TableColumn
+                                                fx:id="colExamImagePreview"
+                                                prefWidth="170.0"
+                                                text="معاينة الصورة"/>
+
+                                    </columns>
+
+                                </TableView>
+
+
+                                <TitledPane
+                                        alignment="CENTER_RIGHT"
+                                        collapsible="false"
+                                        text="تعديل / إضافة فحص طبي">
+
+                                    <font>
+                                        <Font
+                                                name="System Bold"
+                                                size="13.0"/>
+                                    </font>
+
+                                    <content>
+
+                                        <GridPane
+                                                hgap="15.0"
+                                                vgap="12.0">
+
+                                            <columnConstraints>
+
+                                                <ColumnConstraints
+                                                        minWidth="110.0"/>
+
+                                                <ColumnConstraints
+                                                        minWidth="250.0"/>
+
+                                                <ColumnConstraints
+                                                        minWidth="120.0"/>
+
+                                                <ColumnConstraints
+                                                        minWidth="350.0"/>
+
+                                            </columnConstraints>
+
+                                            <rowConstraints>
+
+                                                <RowConstraints/>
+
+                                                <RowConstraints/>
+
+                                            </rowConstraints>
+
+                                            <children>
+
+
+                                                <Label
+                                                        style="-fx-font-weight: bold;"
+                                                        text="اسم الفحص:"
+                                                        GridPane.columnIndex="0"
+                                                        GridPane.rowIndex="0"/>
+
+                                                <TextField
+                                                        fx:id="txtSelectedExamName"
+                                                        promptText="مثال: تحليل CBC"
+                                                        GridPane.columnIndex="1"
+                                                        GridPane.rowIndex="0"/>
+
+
+                                                <Label
+                                                        style="-fx-font-weight: bold;"
+                                                        text="ملاحظات:"
+                                                        GridPane.columnIndex="2"
+                                                        GridPane.rowIndex="0"/>
+
+                                                <TextField
+                                                        fx:id="txtSelectedExamNotes"
+                                                        promptText="ملاحظات الفحص"
+                                                        GridPane.columnIndex="3"
+                                                        GridPane.rowIndex="0"/>
+
+
+                                                <Label
+                                                        style="-fx-font-weight: bold;"
+                                                        text="الصورة:"
+                                                        GridPane.columnIndex="0"
+                                                        GridPane.rowIndex="1"/>
+
+
+                                                <HBox
+                                                        alignment="CENTER_LEFT"
+                                                        spacing="10.0"
+                                                        GridPane.columnIndex="1"
+                                                        GridPane.rowIndex="1">
+
+                                                    <children>
+
+                                                        <Button
+                                                                mnemonicParsing="false"
+                                                                onAction="#handleChooseExamImage"
+                                                                style="-fx-background-color: #0284c7;
+                                                                       -fx-text-fill: white;
+                                                                       -fx-font-weight: bold;
+                                                                       -fx-cursor: hand;"
+                                                                text="📁 اختيار صورة"/>
+
+                                                        <Label
+                                                                fx:id="lblImagePath"
+                                                                text="لم يتم اختيار صورة"
+                                                                textFill="#64748b"
+                                                                wrapText="true"/>
+
+                                                    </children>
+
+                                                </HBox>
+
+
+                                                <HBox
+                                                        alignment="CENTER_RIGHT"
+                                                        spacing="10.0"
+                                                        GridPane.columnIndex="3"
+                                                        GridPane.rowIndex="1">
+
+                                                    <children>
+
+                                                        <Button
+                                                                mnemonicParsing="false"
+                                                                onAction="#handleUpdateExamRow"
+                                                                style="-fx-background-color: #10b981;
+                                                                       -fx-text-fill: white;
+                                                                       -fx-font-weight: bold;
+                                                                       -fx-cursor: hand;"
+                                                                text="🔄 تحديث السطر المحدد"/>
+
+
+                                                        <Button
+                                                                mnemonicParsing="false"
+                                                                onAction="#handleAddNewExamRow"
+                                                                style="-fx-background-color: #4f46e5;
+                                                                       -fx-text-fill: white;
+                                                                       -fx-font-weight: bold;
+                                                                       -fx-cursor: hand;"
+                                                                text="➕ إضافة فحص جديد"/>
+
+                                                    </children>
+
+                                                </HBox>
+
+                                            </children>
+
+                                        </GridPane>
+
+                                    </content>
+
+                                </TitledPane>
+
+                            </children>
+
+                        </VBox>
+
+                    </content>
+
+                </Tab>
+
+            </tabs>
+
+        </TabPane>
+
+
+        <!-- =====================================================
+             BOTTOM BUTTONS
+        ====================================================== -->
+
+        <HBox
+                alignment="CENTER_LEFT"
+                prefHeight="60.0"
+                spacing="15.0"
+                style="-fx-background-color: #ffffff;
+                       -fx-background-radius: 8;
+                       -fx-border-color: #e2e8f0;
+                       -fx-border-radius: 8;"
+                AnchorPane.bottomAnchor="15.0"
+                AnchorPane.leftAnchor="15.0"
+                AnchorPane.rightAnchor="15.0">
+
+            <padding>
+                <Insets
+                        left="20.0"
+                        right="20.0"/>
+            </padding>
+
+            <children>
+
+                <Button
+                        mnemonicParsing="false"
+                        onAction="#handleSaveChanges"
+                        prefHeight="40.0"
+                        prefWidth="200.0"
+                        style="-fx-background-color: #10b981;
+                               -fx-text-fill: white;
+                               -fx-font-weight: bold;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 6;
+                               -fx-cursor: hand;"
+                        text="💾 حفظ جميع التعديلات"/>
+
+
+                <Button
+                        mnemonicParsing="false"
+                        onAction="#handleCancel"
+                        prefHeight="40.0"
+                        prefWidth="130.0"
+                        style="-fx-background-color: #ef4444;
+                               -fx-text-fill: white;
+                               -fx-font-weight: bold;
+                               -fx-font-size: 14px;
+                               -fx-background-radius: 6;
+                               -fx-cursor: hand;"
+                        text="❌ إلغاء"/>
+
+            </children>
+
+        </HBox>
+
+    </children>
+
+</AnchorPane>

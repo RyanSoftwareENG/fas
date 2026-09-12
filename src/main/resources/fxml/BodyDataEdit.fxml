@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="196.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.BodyDataEdit">
+   <children>
+      <GridPane prefHeight="140.0" prefWidth="540.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.2" minWidth="10.0" prefWidth="158.9999755859375" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.99998779296874" minWidth="0.0" prefWidth="24.20001220703125" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.40000000000003" minWidth="0.0" prefWidth="134.79996337890626" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.19996337890626" minWidth="0.0" prefWidth="31.600000000000023" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="235.20001220703125" minWidth="10.0" prefWidth="158.8" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Region prefHeight="28.0" prefWidth="50.0" GridPane.columnIndex="1" />
+            <Region prefHeight="28.0" prefWidth="65.0" GridPane.columnIndex="3" />
+            <TextField fx:id="bodyFatPercentage" onAction="#handleBodyFatPercentage" />
+            <TextField fx:id="muscleMass" onAction="#handleMuscleMass" GridPane.rowIndex="1" />
+            <TextField fx:id="chest_C" onAction="#handleChest_C" GridPane.rowIndex="2" />
+            <TextField fx:id="hip_C" onAction="#handleHip_C" GridPane.rowIndex="3" />
+            <TextField fx:id="midThigh_C" onAction="#handleMidThigh_C" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <TextField fx:id="weight" onAction="#handleWeight" GridPane.columnIndex="2" />
+            <TextField fx:id="SMM" onAction="#handleSMM" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="arm_C" onAction="#handleArm_C" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="abdominal_C" onAction="#handleAbdominal_C" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField fx:id="calf_C" onAction="#handleCalf_C" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <TextField fx:id="height" onAction="#handleHeight" GridPane.columnIndex="4" />
+            <TextField fx:id="activityFactor" onAction="#handleActivityFactor" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <TextField fx:id="physicalActivity" onAction="#handlePhysicalActivity" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <TextField fx:id="waist_C" onAction="#handleWaist_C" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <Region prefHeight="30.0" prefWidth="505.0" />
+      <HBox alignment="TOP_CENTER" prefHeight="27.0" prefWidth="505.0">
+         <children>
+            <Button fx:id="backBodyDataEdit" mnemonicParsing="false" onAction="#handleBackBodyDataEdit" prefHeight="29.0" prefWidth="58.0" text="الرجوع" />
+            <Region prefHeight="27.0" prefWidth="171.0" />
+            <Button fx:id="bodyDataEdit" mnemonicParsing="false" onAction="#handleBodyDataEdit" prefHeight="28.0" prefWidth="90.0" text="حفظ التغيرات" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

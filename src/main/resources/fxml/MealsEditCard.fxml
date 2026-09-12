@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefWidth="480.0" spacing="12.0" style="-fx-background-color: #ffffff; -fx-border-color: #2e1e07; -fx-border-width: 1; -fx-padding: 20;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.EditMeal">
+    <children>
+
+        <GridPane hgap="12.0" vgap="12.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <TextField fx:id="nameMeals" onAction="#handleNameMeals" promptText="اسم الوجبة" GridPane.columnIndex="0">
+                    <font><Font name="Dubai Regular" size="13.0" /></font>
+                </TextField>
+                <TextField fx:id="carbMeals" onAction="#handleCarbMeals" promptText="الكربوهيدرات (جرام)" GridPane.columnIndex="1">
+                    <font><Font name="Dubai Regular" size="13.0" /></font>
+                </TextField>
+
+                <TextField fx:id="fat" onAction="#handleFat" promptText="الدهون (جرام)" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                    <font><Font name="Dubai Regular" size="13.0" /></font>
+                </TextField>
+                <TextField fx:id="cal" onAction="#handleCal" promptText="السعرات الحرارية" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                    <font><Font name="Dubai Regular" size="13.0" /></font>
+                </TextField>
+
+                <TextField fx:id="protin" onAction="#handleProtin" promptText="البروتين (جرام)" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                    <font><Font name="Dubai Regular" size="13.0" /></font>
+                </TextField>
+                <ComboBox fx:id="costLevel" maxWidth="1.7976931348623157E308" onAction="#handleCostLevel" prefHeight="35.0" promptText="مستوى التكلفة" GridPane.rowIndex="2" GridPane.columnIndex="1" style="-fx-font-family: 'Dubai'; -fx-font-size: 13.0;" />
+            </children>
+        </GridPane>
+
+        <HBox alignment="CENTER_RIGHT" prefHeight="25.0">
+            <children>
+                <CheckBox fx:id="isActive" mnemonicParsing="false" onAction="#handleIsActive" text="الوجبة نشطة ومتاحة في العيادة">
+                    <font><Font name="Dubai Regular" size="13.0" /></font>
+                    <padding><Insets right="5.0" /></padding>
+                </CheckBox>
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="15.0">
+            <children>
+                <Button fx:id="saveEditzMeals" mnemonicParsing="false" onAction="#handleSaveEditMeals" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #0284c7; -fx-background-radius: 4; -fx-cursor: hand;" text="حفظ التغيرات" textFill="WHITE">
+                    <font><Font name="Dubai Bold" size="13.0" /></font>
+                </Button>
+                <Button fx:id="backMeal" mnemonicParsing="false" onAction="#handleBackMeal" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #ef4444; -fx-background-radius: 4; -fx-cursor: hand;" text="تراجع" textFill="WHITE">
+                    <font><Font name="Dubai Bold" size="13.0" /></font>
+                </Button>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </HBox>
+    </children>
+</VBox>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../css/logoFAS.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.forminput.MainDashboardController">
+
+    <top>
+        <HBox alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="1000.0" spacing="15.0" style="-fx-background-color: #2c3e50;" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="FAS - Food Assistant System" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </Label>
+                <HBox alignment="CENTER_LEFT" spacing="10.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Button fx:id="btnTopHome" mnemonicParsing="false" onAction="#handleTopHome" style="-fx-background-color: #1a252f; -fx-cursor: hand;" text="الرئيسية" textFill="WHITE">
+                            <font><Font name="System Bold" size="14.0" /></font>
+                            <padding><Insets bottom="8.0" left="15.0" right="15.0" top="8.0" /></padding>
+                        </Button>
+                        <Button fx:id="btnTopAddClient" mnemonicParsing="false" onAction="#handleTopAddClient" style="-fx-background-color: transparent; -fx-cursor: hand;" text="اضافة مريض" textFill="WHITE">
+                            <font><Font size="14.0" /></font>
+                        </Button>
+                        <Button fx:id="btnTopAddSession" mnemonicParsing="false" onAction="#handleTopAddSession" style="-fx-background-color: transparent; -fx-cursor: hand;" text="اضافة جلسة" textFill="WHITE">
+                            <font><Font size="14.0" /></font>
+                        </Button>
+                        <Button fx:id="btnTopAddMeal" mnemonicParsing="false" onAction="#handleTopAddMeal" style="-fx-background-color: transparent; -fx-cursor: hand;" text="اضافة وجبة" textFill="WHITE">
+                            <font><Font size="14.0" /></font>
+                        </Button>
+                    </children>
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </HBox>
+            </children>
+            <padding>
+                <Insets right="20.0" />
+            </padding>
+        </HBox>
+    </top>
+
+    <right>
+        <VBox prefWidth="260.0" style="-fx-background-color: #14004f;" BorderPane.alignment="CENTER">
+            <children>
+                <TitledPane collapsible="false" maxHeight="1.7976931348623157E308" text="القائمة الرئيسية" VBox.vgrow="ALWAYS">
+                    <content>
+                        <VBox spacing="2.0" style="-fx-background-color: #14004f;">
+                            <children>
+                                <Button fx:id="btnNavClients" alignment="BASELINE_RIGHT" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#navigateToClients" styleClass="sidebar-btn" text="ادارة العملاء" />
+                                <Button fx:id="btnNavMeals" alignment="BASELINE_RIGHT" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#navigateToMeals" styleClass="sidebar-btn" text="ادارة الوجبات" />
+                                <Button fx:id="btnNavSessions" alignment="BASELINE_RIGHT" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#navigateToSessions" styleClass="sidebar-btn" text="ادارة الجلسات" />
+                                <Button fx:id="btnNavDiseases" alignment="BASELINE_RIGHT" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#navigateToDiseases" styleClass="sidebar-btn" text="ادارة بيانات الأمراض والحساسية" />
+                                <Button fx:id="btnNavReports" alignment="BASELINE_RIGHT" maxWidth="1.7976931348623157E308" minHeight="50.0" mnemonicParsing="false" onAction="#navigateToReports" styleClass="sidebar-btn" text="ادارة التقارير" />
+                            </children>
+                        </VBox>
+                    </content>
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </TitledPane>
+            </children>
+        </VBox>
+    </right>
+
+    <center>
+        <StackPane fx:id="contentArea" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #f4f6f9;" BorderPane.alignment="CENTER" />
+    </center>
+</BorderPane>

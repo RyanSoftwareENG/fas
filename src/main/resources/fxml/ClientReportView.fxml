@@ -1,0 +1,1276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.scene.chart.CategoryAxis?>
+        <?import javafx.scene.chart.LineChart?>
+        <?import javafx.scene.chart.NumberAxis?>
+        <?import javafx.scene.control.Button?>
+        <?import javafx.scene.control.CheckBox?>
+        <?import javafx.scene.control.DatePicker?>
+        <?import javafx.scene.control.Label?>
+        <?import javafx.scene.control.ListView?>
+        <?import javafx.scene.control.ScrollPane?>
+        <?import javafx.scene.control.Separator?>
+        <?import javafx.scene.control.Tab?>
+        <?import javafx.scene.control.TabPane?>
+        <?import javafx.scene.control.TableColumn?>
+        <?import javafx.scene.control.TableView?>
+        <?import javafx.scene.control.TextArea?>
+        <?import javafx.scene.control.TitledPane?>
+        <?import javafx.scene.control.Tooltip?>
+        <?import javafx.scene.image.ImageView?>
+        <?import javafx.scene.layout.BorderPane?>
+        <?import javafx.scene.layout.FlowPane?>
+        <?import javafx.scene.layout.GridPane?>
+        <?import javafx.scene.layout.HBox?>
+        <?import javafx.scene.layout.Priority?>
+        <?import javafx.scene.layout.Region?>
+        <?import javafx.scene.layout.StackPane?>
+        <?import javafx.scene.layout.VBox?>
+        <?import javafx.scene.text.Font?>
+
+<BorderPane
+        xmlns="http://javafx.com/javafx/26"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="user_interface.offer.ClientReportViewController"
+        nodeOrientation="RIGHT_TO_LEFT"
+        prefWidth="1280"
+        prefHeight="760"
+        minWidth="1100"
+        minHeight="650"
+        style="-fx-background-color: #f4f7fb;"
+        stylesheets="@style.css">
+
+    <!-- ========================================================= -->
+    <!-- HEADER -->
+    <!-- ========================================================= -->
+
+    <top>
+
+        <VBox spacing="0">
+
+            <!-- Main client header -->
+            <HBox
+                    alignment="CENTER_RIGHT"
+                    spacing="18"
+                    prefHeight="118"
+                    style="
+                        -fx-background-color: linear-gradient(to left, #172554, #1e3a8a);
+                        -fx-padding: 18 24 16 24;
+                        -fx-effect: dropshadow(three-pass-box, rgba(15,23,42,0.20), 16, 0, 0, 5);
+                    ">
+
+                <!-- Export -->
+                <Button
+                        fx:id="btnExportPDF"
+                        onAction="#exportToPDF"
+                        mnemonicParsing="true"
+                        text="📄  تصدير التقرير"
+                        style="
+                            -fx-background-color: rgba(255,255,255,0.14);
+                            -fx-text-fill: white;
+                            -fx-font-size: 13px;
+                            -fx-font-weight: bold;
+                            -fx-padding: 11 18;
+                            -fx-background-radius: 9;
+                            -fx-border-color: rgba(255,255,255,0.25);
+                            -fx-border-radius: 9;
+                            -fx-cursor: hand;
+                        ">
+
+                    <tooltip>
+                        <Tooltip text="تصدير التقرير — Ctrl+P"/>
+                    </tooltip>
+                </Button>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <!-- Client information -->
+                <VBox spacing="7" alignment="CENTER_RIGHT">
+
+                    <Label
+                            fx:id="lblClientName"
+                            text="اسم العميل"
+                            textFill="WHITE">
+                        <font>
+                            <Font name="System Bold" size="25"/>
+                        </font>
+                    </Label>
+
+                    <HBox spacing="18" alignment="CENTER_RIGHT">
+
+                        <Label
+                                fx:id="lblClientId"
+                                text="رقم العميل: -"
+                                textFill="#dbeafe"/>
+
+                        <Label
+                                fx:id="lblClientAge"
+                                text="العمر: -"
+                                textFill="#dbeafe"/>
+
+                        <Label
+                                fx:id="lblClientGender"
+                                text="الجنس: -"
+                                textFill="#dbeafe"/>
+
+                        <Label
+                                fx:id="lblClientPhone"
+                                text="الهاتف: -"
+                                textFill="#dbeafe"/>
+
+                    </HBox>
+
+                    <HBox spacing="18" alignment="CENTER_RIGHT">
+
+                        <Label
+                                fx:id="lblRegDate"
+                                text="التسجيل: -"
+                                textFill="#93c5fd"/>
+
+                        <Label
+                                fx:id="lblSessionCount"
+                                text="الجلسات: -"
+                                textFill="#93c5fd"/>
+
+                        <Label
+                                fx:id="lblLastSessionDate"
+                                text="آخر متابعة: -"
+                                textFill="#93c5fd"/>
+
+                        <Label
+                                fx:id="lblHealthStatus"
+                                text="الحالة: -"
+                                textFill="#86efac"
+                                style="-fx-font-weight: bold;"/>
+
+                    </HBox>
+
+                </VBox>
+
+                <!-- Avatar -->
+                <StackPane
+                        prefWidth="78"
+                        prefHeight="78"
+                        style="
+                            -fx-background-color: rgba(255,255,255,0.13);
+                            -fx-background-radius: 39;
+                            -fx-border-color: rgba(255,255,255,0.35);
+                            -fx-border-radius: 39;
+                            -fx-border-width: 2;
+                        ">
+
+                    <ImageView
+                            fx:id="imgClient"
+                            fitWidth="68"
+                            fitHeight="68"
+                            preserveRatio="true"/>
+
+                </StackPane>
+
+            </HBox>
+
+            <!-- Context bar -->
+            <HBox
+                    alignment="CENTER_RIGHT"
+                    spacing="25"
+                    prefHeight="42"
+                    style="
+                        -fx-background-color: white;
+                        -fx-padding: 0 24;
+                        -fx-border-color: #e2e8f0;
+                        -fx-border-width: 0 0 1 0;
+                    ">
+
+                <Label
+                        text="ملف العميل"
+                        style="-fx-text-fill:#64748b; -fx-font-size:12px;"/>
+
+                <Label
+                        text="›"
+                        style="-fx-text-fill:#cbd5e1; -fx-font-size:15px;"/>
+
+                <Label
+                        text="المتابعة الغذائية والصحية"
+                        style="-fx-text-fill:#1e3a8a; -fx-font-size:12px; -fx-font-weight:bold;"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Label
+                        text="Ctrl + 1  نظرة عامة"
+                        style="-fx-text-fill:#94a3b8; -fx-font-size:11px;"/>
+
+                <Label
+                        text="Ctrl + 2  التطور"
+                        style="-fx-text-fill:#94a3b8; -fx-font-size:11px;"/>
+
+                <Label
+                        text="Ctrl + 3  التفاصيل"
+                        style="-fx-text-fill:#94a3b8; -fx-font-size:11px;"/>
+
+                <Label
+                        text="Ctrl + P  PDF"
+                        style="-fx-text-fill:#94a3b8; -fx-font-size:11px;"/>
+
+            </HBox>
+
+        </VBox>
+
+    </top>
+
+
+    <!-- ========================================================= -->
+    <!-- LEFT SIDEBAR -->
+    <!-- ========================================================= -->
+
+    <left>
+
+        <VBox
+                prefWidth="245"
+                spacing="14"
+                style="
+                    -fx-background-color: white;
+                    -fx-padding: 18;
+                    -fx-border-color: #e2e8f0;
+                    -fx-border-width: 0 1 0 0;
+                ">
+
+            <!-- Sidebar title -->
+
+            <VBox spacing="3">
+
+                <Label
+                        text="متابعة العميل"
+                        style="
+                            -fx-text-fill:#0f172a;
+                            -fx-font-size:17px;
+                            -fx-font-weight:bold;
+                        "/>
+
+                <Label
+                        text="اختر جلسة لعرض بياناتها وتحليلها"
+                        wrapText="true"
+                        style="
+                            -fx-text-fill:#94a3b8;
+                            -fx-font-size:11px;
+                        "/>
+
+            </VBox>
+
+            <Separator/>
+
+            <!-- Date filters -->
+
+            <Label
+                    text="الفترة الزمنية"
+                    style="
+                        -fx-text-fill:#475569;
+                        -fx-font-size:12px;
+                        -fx-font-weight:bold;
+                    "/>
+
+            <DatePicker
+                    fx:id="dpStartDate"
+                    maxWidth="Infinity"
+                    promptText="من تاريخ"/>
+
+            <DatePicker
+                    fx:id="dpEndDate"
+                    maxWidth="Infinity"
+                    promptText="إلى تاريخ"/>
+
+            <Separator/>
+
+            <!-- Session list -->
+
+            <VBox spacing="6" VBox.vgrow="ALWAYS">
+
+                <HBox alignment="CENTER_RIGHT">
+
+                    <Label
+                            text="الجلسات السابقة"
+                            style="
+                                -fx-text-fill:#334155;
+                                -fx-font-size:12px;
+                                -fx-font-weight:bold;
+                            "/>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <Label
+                            text="الأحدث"
+                            style="
+                                -fx-text-fill:#94a3b8;
+                                -fx-font-size:10px;
+                            "/>
+
+                </HBox>
+
+                <ListView
+                        fx:id="lvSessions"
+                        VBox.vgrow="ALWAYS"
+                        style="
+                            -fx-background-color:#f8fafc;
+                            -fx-background-radius:10;
+                            -fx-border-color:#e2e8f0;
+                            -fx-border-radius:10;
+                            -fx-padding:3;
+                        "/>
+
+            </VBox>
+
+            <!-- Selected session hint -->
+
+            <VBox
+                    spacing="6"
+                    style="
+                        -fx-background-color:#eff6ff;
+                        -fx-background-radius:10;
+                        -fx-padding:11;
+                        -fx-border-color:#dbeafe;
+                        -fx-border-radius:10;
+                    ">
+
+                <Label
+                        text="💡 تلميح"
+                        style="
+                            -fx-text-fill:#1d4ed8;
+                            -fx-font-weight:bold;
+                            -fx-font-size:11px;
+                        "/>
+
+                <Label
+                        text="اختيار جلسة يحدّث المؤشرات والرسوم والمقارنة والتحليل تلقائياً."
+                        wrapText="true"
+                        style="
+                            -fx-text-fill:#475569;
+                            -fx-font-size:10px;
+                            -fx-line-spacing:2;
+                        "/>
+
+            </VBox>
+
+            <!-- Close -->
+
+            <Button
+                    maxWidth="Infinity"
+                    onAction="#handleClose"
+                    mnemonicParsing="true"
+                    text="إغلاق ملف العميل"
+                    style="
+                        -fx-background-color:#fff1f2;
+                        -fx-text-fill:#be123c;
+                        -fx-font-weight:bold;
+                        -fx-padding:11;
+                        -fx-background-radius:9;
+                        -fx-border-color:#fecdd3;
+                        -fx-border-radius:9;
+                        -fx-cursor:hand;
+                    ">
+
+                <tooltip>
+                    <Tooltip text="إغلاق شاشة الملف"/>
+                </tooltip>
+
+            </Button>
+
+        </VBox>
+
+    </left>
+
+
+    <!-- ========================================================= -->
+    <!-- CENTER -->
+    <!-- ========================================================= -->
+
+    <center>
+
+        <TabPane
+                tabClosingPolicy="UNAVAILABLE"
+                style="
+                    -fx-background-color:#f4f7fb;
+                    -fx-padding:10 14 14 14;
+                ">
+
+            <!-- ================================================= -->
+            <!-- TAB 1 : OVERVIEW -->
+            <!-- ================================================= -->
+
+            <Tab text="  🏠  نظرة عامة  ">
+
+                <ScrollPane
+                        fitToWidth="true"
+                        hbarPolicy="NEVER"
+                        style="
+                            -fx-background-color:transparent;
+                            -fx-background-insets:0;
+                            -fx-padding:8;
+                        ">
+
+                    <VBox
+                            spacing="18"
+                            style="-fx-padding:8 4 25 4;">
+
+                        <!-- Section title -->
+
+                        <HBox alignment="CENTER_RIGHT">
+
+                            <VBox spacing="3">
+
+                                <Label
+                                        text="ملخص الحالة الحالية"
+                                        style="
+                                            -fx-text-fill:#0f172a;
+                                            -fx-font-size:21px;
+                                            -fx-font-weight:bold;
+                                        "/>
+
+                                <Label
+                                        text="عرض سريع لأهم المؤشرات المسجلة في الجلسة المحددة."
+                                        style="
+                                            -fx-text-fill:#64748b;
+                                            -fx-font-size:12px;
+                                        "/>
+
+                            </VBox>
+
+                            <Region HBox.hgrow="ALWAYS"/>
+
+                            <Label
+                                    text="● بيانات الجلسة المحددة"
+                                    style="
+                                        -fx-text-fill:#16a34a;
+                                        -fx-font-size:11px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                        </HBox>
+
+
+                        <!-- KPI Cards -->
+
+                        <FlowPane
+                                fx:id="cardsContainer"
+                                hgap="14"
+                                vgap="14"
+                                prefWrapLength="1000"
+                                style="-fx-padding:2;"/>
+
+
+                        <!-- Interpretation section -->
+
+                        <HBox spacing="14">
+
+                            <VBox
+                                    spacing="10"
+                                    HBox.hgrow="ALWAYS"
+                                    style="
+                                        -fx-background-color:white;
+                                        -fx-background-radius:12;
+                                        -fx-padding:17;
+                                        -fx-border-color:#e2e8f0;
+                                        -fx-border-radius:12;
+                                    ">
+
+                                <Label
+                                        text="📌 كيف نقرأ هذه المؤشرات؟"
+                                        style="
+                                            -fx-text-fill:#1e3a8a;
+                                            -fx-font-size:14px;
+                                            -fx-font-weight:bold;
+                                        "/>
+
+                                <Label
+                                        text="المؤشرات الرقمية تساعد المختص على متابعة التغيرات بين الجلسات، لكنها لا تُستخدم منفردة لإصدار تشخيص طبي أو اتخاذ قرار علاجي."
+                                        wrapText="true"
+                                        style="
+                                            -fx-text-fill:#475569;
+                                            -fx-font-size:11px;
+                                            -fx-line-spacing:2;
+                                        "/>
+
+                                <Label
+                                        text="قد تتأثر القياسات بعوامل مثل وقت القياس، مستوى الترطيب، النشاط البدني، طريقة القياس ودقة الجهاز المستخدم."
+                                        wrapText="true"
+                                        style="
+                                            -fx-text-fill:#64748b;
+                                            -fx-font-size:11px;
+                                            -fx-line-spacing:2;
+                                        "/>
+
+                            </VBox>
+
+
+                            <VBox
+                                    spacing="10"
+                                    HBox.hgrow="ALWAYS"
+                                    style="
+                                        -fx-background-color:#f8fafc;
+                                        -fx-background-radius:12;
+                                        -fx-padding:17;
+                                        -fx-border-color:#e2e8f0;
+                                        -fx-border-radius:12;
+                                    ">
+
+                                <Label
+                                        text="🛡️ سلامة البيانات"
+                                        style="
+                                            -fx-text-fill:#334155;
+                                            -fx-font-size:14px;
+                                            -fx-font-weight:bold;
+                                        "/>
+
+                                <Label
+                                        text="البيانات المعروضة هنا مأخوذة من السجلات المرتبطة بالعميل والجلسة المحددة."
+                                        wrapText="true"
+                                        style="
+                                            -fx-text-fill:#64748b;
+                                            -fx-font-size:11px;
+                                            -fx-line-spacing:2;
+                                        "/>
+
+                                <Label
+                                        text="أي قيمة غير مكتملة أو غير موثوقة يجب مراجعتها مع المختص قبل الاعتماد عليها."
+                                        wrapText="true"
+                                        style="
+                                            -fx-text-fill:#64748b;
+                                            -fx-font-size:11px;
+                                            -fx-line-spacing:2;
+                                        "/>
+
+                            </VBox>
+
+                        </HBox>
+
+
+                        <!-- Data interpretation -->
+
+                        <TitledPane
+                                text="دليل قراءة الحالات"
+                                expanded="false">
+
+                            <VBox
+                                    spacing="10"
+                                    style="-fx-padding:14;">
+
+                                <Label
+                                        text="🟢 ضمن النطاق المستهدف — لا يعني ذلك بالضرورة أن الحالة الصحية كاملة دون مشكلات."
+                                        wrapText="true"/>
+
+                                <Label
+                                        text="🟡 يحتاج متابعة — توجد قيمة تستحق المقارنة مع القياسات السابقة والسياق الغذائي."
+                                        wrapText="true"/>
+
+                                <Label
+                                        text="🟠 يحتاج مراجعة — يفضّل مراجعة المختص والسياق الكامل قبل اتخاذ قرار."
+                                        wrapText="true"/>
+
+                                <Label
+                                        text="🔴 مؤشر يحتاج اهتماماً — لا يمثل تشخيصاً طبياً، ويجب تفسيره بواسطة المختص."
+                                        wrapText="true"/>
+
+                            </VBox>
+
+                        </TitledPane>
+
+                    </VBox>
+
+                </ScrollPane>
+
+            </Tab>
+
+
+            <!-- ================================================= -->
+            <!-- TAB 2 : PROGRESS -->
+            <!-- ================================================= -->
+
+            <Tab text="  📈  التطور والمتابعة  ">
+
+                <VBox
+                        spacing="14"
+                        style="-fx-padding:18; -fx-background-color:#f8fafc;">
+
+                    <HBox alignment="CENTER_RIGHT">
+
+                        <VBox spacing="3">
+
+                            <Label
+                                    text="تطور المؤشرات عبر الزمن"
+                                    style="
+                                        -fx-text-fill:#0f172a;
+                                        -fx-font-size:20px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            <Label
+                                    text="قارن الاتجاه العام للقياسات بدلاً من الاعتماد على قراءة واحدة."
+                                    style="
+                                        -fx-text-fill:#64748b;
+                                        -fx-font-size:11px;
+                                    "/>
+
+                        </VBox>
+
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <FlowPane
+                                fx:id="chartTogglesContainer"
+                                hgap="12"
+                                vgap="7"/>
+
+                    </HBox>
+
+                    <VBox
+                            VBox.vgrow="ALWAYS"
+                            style="
+                                -fx-background-color:white;
+                                -fx-background-radius:14;
+                                -fx-padding:15;
+                                -fx-border-color:#e2e8f0;
+                                -fx-border-radius:14;
+                            ">
+
+                        <LineChart
+                                fx:id="mainChart"
+                                animated="false"
+                                createSymbols="true"
+                                legendVisible="true"
+                                verticalGridLinesVisible="true"
+                                horizontalGridLinesVisible="true"
+                                VBox.vgrow="ALWAYS">
+
+                            <xAxis>
+
+                                <CategoryAxis
+                                        fx:id="xAxis"
+                                        side="BOTTOM"
+                                        label="تاريخ الجلسة"/>
+
+                            </xAxis>
+
+                            <yAxis>
+
+                                <NumberAxis
+                                        fx:id="yAxis"
+                                        side="LEFT"
+                                        forceZeroInRange="false"
+                                        label="القيمة"/>
+
+                            </yAxis>
+
+                        </LineChart>
+
+                    </VBox>
+
+                    <HBox
+                            spacing="10"
+                            style="
+                                -fx-background-color:#eff6ff;
+                                -fx-background-radius:10;
+                                -fx-padding:12;
+                                -fx-border-color:#dbeafe;
+                                -fx-border-radius:10;
+                            ">
+
+                        <Label
+                                text="ℹ"
+                                style="
+                                    -fx-text-fill:#2563eb;
+                                    -fx-font-size:15px;
+                                    -fx-font-weight:bold;
+                                "/>
+
+                        <Label
+                                text="الاتجاهات تساعد في اكتشاف التغيرات، لكن اختلاف ظروف القياس قد يؤثر في المقارنة. يفضل تفسير الاتجاه على عدة جلسات."
+                                wrapText="true"
+                                HBox.hgrow="ALWAYS"
+                                style="
+                                    -fx-text-fill:#475569;
+                                    -fx-font-size:11px;
+                                "/>
+
+                    </HBox>
+
+                </VBox>
+
+            </Tab>
+
+
+            <!-- ================================================= -->
+            <!-- TAB 3 : SESSION DETAILS -->
+            <!-- ================================================= -->
+
+            <Tab text="  📋  تفاصيل الجلسة  ">
+
+                <ScrollPane
+                        fitToWidth="true"
+                        hbarPolicy="NEVER"
+                        style="-fx-background-color:#f8fafc;">
+
+                    <VBox
+                            spacing="15"
+                            style="-fx-padding:18;">
+
+                        <!-- Session title -->
+
+                        <VBox spacing="3">
+
+                            <Label
+                                    text="بيانات الجلسة التفصيلية"
+                                    style="
+                                        -fx-text-fill:#0f172a;
+                                        -fx-font-size:20px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            <Label
+                                    text="جميع البيانات المتاحة للجلسة المحددة، مع الفصل بين القياسات والخطة والفحوصات."
+                                    style="
+                                        -fx-text-fill:#64748b;
+                                        -fx-font-size:11px;
+                                    "/>
+
+                        </VBox>
+
+
+                        <!-- Body -->
+
+                        <TitledPane
+                                expanded="true"
+                                text="⚖  القياسات الجسدية">
+
+                            <VBox spacing="10">
+
+                                <Label
+                                        text="القياسات الأساسية المستخدمة في متابعة تغيرات الجسم."
+                                        wrapText="true"
+                                        style="
+                                            -fx-text-fill:#64748b;
+                                            -fx-font-size:11px;
+                                        "/>
+
+                                <GridPane
+                                        fx:id="measurementsGrid"
+                                        hgap="12"
+                                        vgap="12"
+                                        style="-fx-padding:8;"/>
+
+                            </VBox>
+
+                        </TitledPane>
+
+
+                        <!-- Nutrition -->
+
+                        <TitledPane
+                                expanded="true"
+                                text="🥗  الخطة الغذائية">
+
+                            <VBox spacing="10">
+
+                                <Label
+                                        text="السعرات والعناصر الغذائية والأهداف المسجلة في الخطة."
+                                        wrapText="true"
+                                        style="
+                                            -fx-text-fill:#64748b;
+                                            -fx-font-size:11px;
+                                        "/>
+
+                                <GridPane
+                                        fx:id="nutritionGrid"
+                                        hgap="12"
+                                        vgap="12"
+                                        style="-fx-padding:8;"/>
+
+                            </VBox>
+
+                        </TitledPane>
+
+
+                        <!-- Examinations -->
+
+                        <TitledPane
+                                expanded="true"
+                                text="🧪  الفحوصات الطبية">
+
+                            <VBox spacing="10">
+
+                                <Label
+                                        text="الفحوصات المعروضة هي بيانات مسجلة في الملف وليست تفسيراً طبياً آلياً."
+                                        wrapText="true"
+                                        style="
+                                            -fx-text-fill:#64748b;
+                                            -fx-font-size:11px;
+                                        "/>
+
+                                <TableView
+                                        fx:id="tvExaminations"
+                                        prefHeight="280"
+                                        VBox.vgrow="ALWAYS">
+
+                                    <placeholder>
+                                        <Label text="لا توجد فحوصات مسجلة أو مرفقة بهذه الجلسة."/>
+                                    </placeholder>
+
+                                    <columns>
+
+                                        <TableColumn
+                                                fx:id="colExamName"
+                                                prefWidth="230"
+                                                text="اسم الفحص"/>
+
+                                        <TableColumn
+                                                fx:id="colExamValue"
+                                                prefWidth="170"
+                                                text="النتيجة"/>
+
+                                        <TableColumn
+                                                fx:id="colExamRef"
+                                                prefWidth="180"
+                                                text="النطاق المرجعي"/>
+
+                                        <TableColumn
+                                                fx:id="colExamStatus"
+                                                prefWidth="170"
+                                                text="الحالة"/>
+
+                                    </columns>
+
+                                </TableView>
+
+                            </VBox>
+
+                        </TitledPane>
+
+
+                        <!-- Data quality -->
+
+                        <VBox
+                                spacing="8"
+                                style="
+                                    -fx-background-color:white;
+                                    -fx-background-radius:12;
+                                    -fx-padding:15;
+                                    -fx-border-color:#e2e8f0;
+                                    -fx-border-radius:12;
+                                ">
+
+                            <Label
+                                    text="🔎 جودة المعلومات"
+                                    style="
+                                        -fx-text-fill:#334155;
+                                        -fx-font-size:13px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            <Label
+                                    text="عند وجود بيانات ناقصة، لا ينبغي للنظام افتراض القيم المفقودة أو اعتبارها طبيعية. يجب عرضها بوضوح كبيانات غير متوفرة."
+                                    wrapText="true"
+                                    style="
+                                        -fx-text-fill:#64748b;
+                                        -fx-font-size:11px;
+                                    "/>
+
+                        </VBox>
+
+                    </VBox>
+
+                </ScrollPane>
+
+            </Tab>
+
+
+            <!-- ================================================= -->
+            <!-- TAB 4 : COMPARISON -->
+            <!-- ================================================= -->
+
+            <Tab text="  🔍  المقارنة والتحليل  ">
+
+                <ScrollPane
+                        fitToWidth="true"
+                        hbarPolicy="NEVER"
+                        style="-fx-background-color:#f8fafc;">
+
+                    <VBox
+                            spacing="16"
+                            style="-fx-padding:18;">
+
+                        <VBox spacing="3">
+
+                            <Label
+                                    text="المقارنة بين مراحل المتابعة"
+                                    style="
+                                        -fx-text-fill:#0f172a;
+                                        -fx-font-size:20px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            <Label
+                                    text="مقارنة الجلسة الحالية بالجلسة السابقة والأولى للمساعدة على فهم مسار التغيير."
+                                    style="
+                                        -fx-text-fill:#64748b;
+                                        -fx-font-size:11px;
+                                    "/>
+
+                        </VBox>
+
+
+                        <VBox
+                                spacing="12"
+                                style="
+                                    -fx-background-color:white;
+                                    -fx-background-radius:14;
+                                    -fx-padding:18;
+                                    -fx-border-color:#e2e8f0;
+                                    -fx-border-radius:14;
+                                ">
+
+                            <Label
+                                    text="جدول المقارنة"
+                                    style="
+                                        -fx-text-fill:#1e3a8a;
+                                        -fx-font-size:14px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            <GridPane
+                                    fx:id="comparisonGrid"
+                                    hgap="0"
+                                    vgap="0"
+                                    maxWidth="Infinity"/>
+
+                        </VBox>
+
+
+                        <HBox spacing="12">
+
+                            <VBox
+                                    spacing="8"
+                                    HBox.hgrow="ALWAYS"
+                                    style="
+                                        -fx-background-color:#f0fdf4;
+                                        -fx-background-radius:12;
+                                        -fx-padding:15;
+                                        -fx-border-color:#dcfce7;
+                                        -fx-border-radius:12;
+                                    ">
+
+                                <Label
+                                        text="📈 التحسن لا يعني بالضرورة تحسن الحالة بالكامل"
+                                        style="
+                                            -fx-text-fill:#166534;
+                                            -fx-font-weight:bold;
+                                            -fx-font-size:12px;
+                                        "/>
+
+                                <Label
+                                        text="يجب النظر إلى عدة مؤشرات معاً، إضافة إلى التاريخ الغذائي ونمط الحياة والمعلومات التي يقدمها المختص."
+                                        wrapText="true"
+                                        style="
+                                            -fx-text-fill:#475569;
+                                            -fx-font-size:10px;
+                                        "/>
+
+                            </VBox>
+
+
+                            <VBox
+                                    spacing="8"
+                                    HBox.hgrow="ALWAYS"
+                                    style="
+                                        -fx-background-color:#fff7ed;
+                                        -fx-background-radius:12;
+                                        -fx-padding:15;
+                                        -fx-border-color:#fed7aa;
+                                        -fx-border-radius:12;
+                                    ">
+
+                                <Label
+                                        text="⚠ التغيرات الكبيرة تحتاج مراجعة"
+                                        style="
+                                            -fx-text-fill:#9a3412;
+                                            -fx-font-weight:bold;
+                                            -fx-font-size:12px;
+                                        "/>
+
+                                <Label
+                                        text="إذا ظهرت تغيرات غير متوقعة أو متعارضة بين المؤشرات، ينبغي مراجعة البيانات الأصلية وظروف القياس قبل تفسيرها."
+                                        wrapText="true"
+                                        style="
+                                            -fx-text-fill:#475569;
+                                            -fx-font-size:10px;
+                                        "/>
+
+                            </VBox>
+
+                        </HBox>
+
+                    </VBox>
+
+                </ScrollPane>
+
+            </Tab>
+
+
+            <!-- ================================================= -->
+            <!-- TAB 5 : AI ASSISTANT -->
+            <!-- ================================================= -->
+
+            <Tab text="  ✨  المساعد الذكي  ">
+
+                <ScrollPane
+                        fitToWidth="true"
+                        hbarPolicy="NEVER"
+                        style="-fx-background-color:#f8fafc;">
+
+                    <VBox
+                            spacing="15"
+                            style="-fx-padding:18;">
+
+                        <!-- AI header -->
+
+                        <HBox
+                                spacing="15"
+                                alignment="CENTER_RIGHT"
+                                style="
+                                    -fx-background-color:linear-gradient(to left,#eef2ff,#f8fafc);
+                                    -fx-background-radius:14;
+                                    -fx-padding:18;
+                                    -fx-border-color:#c7d2fe;
+                                    -fx-border-radius:14;
+                                ">
+
+                            <VBox spacing="5">
+
+                                <Label
+                                        text="✨ المساعد الذكي للتحليل"
+                                        style="
+                                            -fx-text-fill:#312e81;
+                                            -fx-font-size:20px;
+                                            -fx-font-weight:bold;
+                                        "/>
+
+                                <Label
+                                        text="تحليل مساعد مبني على البيانات المسجلة في الجلسة والملف."
+                                        style="
+                                            -fx-text-fill:#64748b;
+                                            -fx-font-size:11px;
+                                        "/>
+
+                            </VBox>
+
+                            <Region HBox.hgrow="ALWAYS"/>
+
+                            <Label
+                                    text="AI • ASSISTIVE ANALYSIS"
+                                    style="
+                                        -fx-background-color:#e0e7ff;
+                                        -fx-background-radius:20;
+                                        -fx-padding:7 12;
+                                        -fx-text-fill:#4338ca;
+                                        -fx-font-size:10px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                        </HBox>
+
+
+                        <!-- Safety notice -->
+
+                        <VBox
+                                spacing="7"
+                                style="
+                                    -fx-background-color:#fff7ed;
+                                    -fx-background-radius:12;
+                                    -fx-padding:14;
+                                    -fx-border-color:#fed7aa;
+                                    -fx-border-radius:12;
+                                ">
+
+                            <Label
+                                    text="🛡️ حدود استخدام الذكاء الاصطناعي"
+                                    style="
+                                        -fx-text-fill:#9a3412;
+                                        -fx-font-size:13px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            <Label
+                                    text="هذا التحليل مخصص للمساعدة في تنظيم وفهم المعلومات، وليس لتشخيص الأمراض أو وصف الأدوية أو اتخاذ قرارات طبية بشكل مستقل."
+                                    wrapText="true"
+                                    style="
+                                        -fx-text-fill:#7c2d12;
+                                        -fx-font-size:11px;
+                                        -fx-line-spacing:2;
+                                    "/>
+
+                            <Label
+                                    text="عند وجود علامة تستدعي الانتباه، يجب أن يعرض النظام سبب التنبيه والبيانات التي أدت إليه، ثم يترك القرار النهائي للمختص."
+                                    wrapText="true"
+                                    style="
+                                        -fx-text-fill:#7c2d12;
+                                        -fx-font-size:11px;
+                                        -fx-line-spacing:2;
+                                    "/>
+
+                        </VBox>
+
+
+                        <!-- AI report -->
+
+                        <VBox
+                                spacing="10"
+                                VBox.vgrow="ALWAYS"
+                                style="
+                                    -fx-background-color:white;
+                                    -fx-background-radius:14;
+                                    -fx-padding:18;
+                                    -fx-border-color:#e2e8f0;
+                                    -fx-border-radius:14;
+                                ">
+
+                            <HBox alignment="CENTER_RIGHT">
+
+                                <Label
+                                        text="التحليل الحالي"
+                                        style="
+                                            -fx-text-fill:#0f172a;
+                                            -fx-font-size:15px;
+                                            -fx-font-weight:bold;
+                                        "/>
+
+                                <Region HBox.hgrow="ALWAYS"/>
+
+                                <Label
+                                        text="معلومات الجلسة المحددة"
+                                        style="
+                                            -fx-text-fill:#94a3b8;
+                                            -fx-font-size:10px;
+                                        "/>
+
+                            </HBox>
+
+                            <TextArea
+                                    fx:id="txtSmartReport"
+                                    editable="false"
+                                    wrapText="true"
+                                    prefRowCount="22"
+                                    VBox.vgrow="ALWAYS"
+                                    style="
+                                        -fx-background-color:#f8fafc;
+                                        -fx-control-inner-background:#f8fafc;
+                                        -fx-border-color:#e2e8f0;
+                                        -fx-border-radius:10;
+                                        -fx-background-radius:10;
+                                        -fx-font-size:13px;
+                                        -fx-text-fill:#334155;
+                                        -fx-padding:14;
+                                    "/>
+
+                        </VBox>
+
+
+                        <!-- Possible AI outputs -->
+
+                        <VBox
+                                spacing="10"
+                                style="
+                                    -fx-background-color:white;
+                                    -fx-background-radius:14;
+                                    -fx-padding:16;
+                                    -fx-border-color:#e2e8f0;
+                                    -fx-border-radius:14;
+                                ">
+
+                            <Label
+                                    text="ما الذي يجب أن يعرضه التحليل الذكي؟"
+                                    style="
+                                        -fx-text-fill:#334155;
+                                        -fx-font-size:13px;
+                                        -fx-font-weight:bold;
+                                    "/>
+
+                            <FlowPane
+                                    hgap="10"
+                                    vgap="10">
+
+                                <Label
+                                        text="✓ ملخص البيانات"
+                                        style="
+                                            -fx-background-color:#f1f5f9;
+                                            -fx-background-radius:8;
+                                            -fx-padding:8 11;
+                                            -fx-text-fill:#475569;
+                                        "/>
+
+                                <Label
+                                        text="✓ التغير عن الجلسة السابقة"
+                                        style="
+                                            -fx-background-color:#f1f5f9;
+                                            -fx-background-radius:8;
+                                            -fx-padding:8 11;
+                                            -fx-text-fill:#475569;
+                                        "/>
+
+                                <Label
+                                        text="✓ البيانات الناقصة"
+                                        style="
+                                            -fx-background-color:#f1f5f9;
+                                            -fx-background-radius:8;
+                                            -fx-padding:8 11;
+                                            -fx-text-fill:#475569;
+                                        "/>
+
+                                <Label
+                                        text="✓ نقاط تحتاج مراجعة"
+                                        style="
+                                            -fx-background-color:#f1f5f9;
+                                            -fx-background-radius:8;
+                                            -fx-padding:8 11;
+                                            -fx-text-fill:#475569;
+                                        "/>
+
+                                <Label
+                                        text="✓ أسئلة مقترحة للمختص"
+                                        style="
+                                            -fx-background-color:#f1f5f9;
+                                            -fx-background-radius:8;
+                                            -fx-padding:8 11;
+                                            -fx-text-fill:#475569;
+                                        "/>
+
+                                <Label
+                                        text="✓ تفسير الاختلافات"
+                                        style="
+                                            -fx-background-color:#f1f5f9;
+                                            -fx-background-radius:8;
+                                            -fx-padding:8 11;
+                                            -fx-text-fill:#475569;
+                                        "/>
+
+                            </FlowPane>
+
+                        </VBox>
+
+
+                        <!-- Final disclaimer -->
+
+                        <Label
+                                text="تنبيه: مخرجات المساعد الذكي يجب اعتبارها معلومات مساعدة قابلة للمراجعة وليست تشخيصاً أو بديلاً عن تقييم المختص."
+                                wrapText="true"
+                                style="
+                                    -fx-text-fill:#64748b;
+                                    -fx-font-size:10px;
+                                    -fx-padding:5 3;
+                                "/>
+
+                    </VBox>
+
+                </ScrollPane>
+
+            </Tab>
+
+        </TabPane>
+
+    </center>
+
+</BorderPane>
