@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_RIGHT" nodeOrientation="RIGHT_TO_LEFT" stylesheets="@../css/logoFAS.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.Home">
+    <children>
+        <VBox prefHeight="800.0" prefWidth="269.0" style="-fx-background-color: #2e1e07;">
+            <children>
+                <Label alignment="CENTER" prefHeight="60.0" prefWidth="275.0" style="-fx-background-color: #9e6700;" text="القائمة الرئيسية" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Button fx:id="clientManagementBtn" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleClientManagementBtn" prefHeight="50.0" styleClass="sidebar-btn" text="إدارة العملاء" textFill="WHITE" wrapText="true">
+                    <padding><Insets right="20.0" /></padding>
+                </Button>
+                <Button fx:id="mealsBtn" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleMealsBtn" prefHeight="50.0" styleClass="sidebar-btn" text="إدارة الوجبات" textFill="#2e1e07" wrapText="true">
+                    <padding><Insets right="20.0" /></padding>
+                </Button>
+                <Button fx:id="sessionBtn" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleSessionBtn" prefHeight="50.0" styleClass="sidebar-btn" text="إدارة الجلسات" textFill="WHITE" wrapText="true">
+                    <padding><Insets right="20.0" /></padding>
+                </Button>
+                <Button fx:id="diseasesAndAllergyBtn" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleDiseasesAndAllergyBtn" prefHeight="50.0" styleClass="sidebar-btn" text="إدارة بيانات الأمراض والحساسية" textFill="WHITE" wrapText="true">
+                    <padding><Insets right="20.0" /></padding>
+                </Button>
+                <Button fx:id="reportBtn" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleReportBtn" prefHeight="50.0" styleClass="sidebar-btn" text="إدارة التقارير" textFill="WHITE" wrapText="true">
+                    <padding><Insets right="20.0" /></padding>
+                </Button>
+            </children>
+        </VBox>
+
+        <AnchorPane fx:id="mainContentArea" prefHeight="800.0" HBox.hgrow="ALWAYS">
+            <children>
+                <VBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT">
+                            <children>
+                                <Pane id="logo" fx:id="logo" prefHeight="150.0" prefWidth="150.0" />
+                            </children>
+                        </Pane>
+                        <Label alignment="CENTER" prefWidth="320.0" text="مرحباً بك في نظام FAS المساعد الذكي لعيادات التغذية" textAlignment="CENTER" wrapText="true">
+                            <font>
+                                <Font name="Dubai Bold" size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</HBox>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefWidth="360.0" spacing="12.0" style="-fx-background-color: #ffffff; -fx-border-color: #2e1e07; -fx-border-width: 1; -fx-padding: 20;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.ClintEdit">
+    <children>
+
+        <TextField fx:id="nameClientEdit" onAction="#handleNameClientEdit" prefHeight="35.0" promptText="اسم العميل الكامل">
+            <font>
+                <Font name="Dubai Regular" size="13.0" />
+            </font>
+        </TextField>
+
+        <HBox alignment="CENTER_RIGHT" prefHeight="25.0" spacing="30.0">
+            <children>
+                <RadioButton fx:id="male" mnemonicParsing="false" onAction="#handleMale" text="ذكر">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="genderGroup" />
+                    </toggleGroup>
+                    <font>
+                        <Font name="Dubai Regular" size="13.0" />
+                    </font>
+                </RadioButton>
+                <RadioButton fx:id="female" mnemonicParsing="false" onAction="#handleFemale" text="أنثى" toggleGroup="$genderGroup">
+                    <font>
+                        <Font name="Dubai Regular" size="13.0" />
+                    </font>
+                </RadioButton>
+            </children>
+            <HBox.margin>
+                <Insets />
+            </HBox.margin>
+            <padding>
+                <Insets right="5.0" />
+            </padding>
+        </HBox>
+
+        <DatePicker fx:id="brithDate" maxWidth="1.7976931348623157E308" onAction="#handleBrithDate" prefHeight="35.0" promptText="تاريخ الميلاد" />
+
+        <TextField fx:id="phoneNumber" onAction="#handlePhoneNumber" prefHeight="35.0" promptText="رقم الهاتف">
+            <font>
+                <Font name="Dubai Regular" size="13.0" />
+            </font>
+        </TextField>
+
+        <HBox fx:id="patientButtonsBox" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" spacing="10.0">
+            <children>
+                <Button fx:id="diseaseBtn" mnemonicParsing="false" onAction="#handleDiseaseBtn" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #f1f5f9; -fx-border-color: #cbd5e1; -fx-border-radius: 4; -fx-cursor: hand;" text="الأمراض المزمنة" textFill="#334155">
+                    <font>
+                        <Font name="Dubai Bold" size="12.0" />
+                    </font></Button>
+                <Button fx:id="allergyBtn" mnemonicParsing="false" onAction="#handleAllergyBtn" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #f1f5f9; -fx-border-color: #cbd5e1; -fx-border-radius: 4; -fx-cursor: hand;" text="تعديل الحساسية" textFill="#334155">
+                    <font>
+                        <Font name="Dubai Bold" size="12.0" />
+                    </font></Button>
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" spacing="10.0">
+            <children>
+                <Button fx:id="lifeStyleBtn" mnemonicParsing="false" onAction="#handleLifeStyleBtn" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #f1f5f9; -fx-border-color: #cbd5e1; -fx-border-radius: 4; -fx-cursor: hand;" text="نمط الحياة" textFill="#334155">
+                    <font>
+                        <Font name="Dubai Bold" size="12.0" />
+                    </font></Button>
+                <Button fx:id="healthBtn" mnemonicParsing="false" onAction="#handleHealthBtn" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #f1f5f9; -fx-border-color: #cbd5e1; -fx-border-radius: 4; -fx-cursor: hand;" text="البيانات الصحية" textFill="#334155">
+                    <font>
+                        <Font name="Dubai Bold" size="12.0" />
+                    </font></Button>
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" spacing="15.0">
+            <children>
+                <Button fx:id="saveCLientEditBtn" mnemonicParsing="false" onAction="#handleSaveClientEditBtn" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #0284c7; -fx-background-radius: 4; -fx-cursor: hand;" text="حفظ التعديلات" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Bold" size="13.0" />
+                    </font></Button>
+                <Button fx:id="backClientEdit" mnemonicParsing="false" onAction="#handleBackClint" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #ef4444; -fx-background-radius: 4; -fx-cursor: hand;" text="الرجوع" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Bold" size="13.0" />
+                    </font></Button>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+        </HBox>
+    </children>
+</VBox>

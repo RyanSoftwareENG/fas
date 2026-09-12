@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="670.0" prefWidth="1200.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.ReportsController">
+
+    <!-- ===================== Top ===================== -->
+
+    <top>
+
+        <HBox alignment="CENTER_LEFT" prefHeight="70" style="-fx-background-color:#2C3E50;">
+
+            <padding>
+                <Insets bottom="15" left="20" right="20" top="15" />
+            </padding>
+
+            <Label text="نظام إدارة التقارير" textFill="WHITE">
+
+                <font>
+                    <Font name="System Bold" size="24" />
+                </font>
+
+            </Label>
+
+            <Pane HBox.hgrow="ALWAYS">
+            <children>
+               <HBox layoutX="70.0" layoutY="2.0" prefHeight="35.0" prefWidth="736.0">
+                  <children>
+            
+                        <Button maxWidth="Infinity" onAction="#showAdministrativeReport" prefHeight="35.0" prefWidth="118.0" styleClass="menu-button" text="تقرير إداري" textFill="#2c3e50">
+                        <HBox.margin>
+                           <Insets left="10.0" right="10.0" />
+                        </HBox.margin>
+                     </Button>
+            
+                        <Button maxWidth="Infinity" onAction="#showOperationsReport" prefHeight="35.0" prefWidth="118.0" styleClass="menu-button" text="تقرير العمل والجلسات" textFill="#2c3e50">
+                        <HBox.margin>
+                           <Insets left="10.0" right="10.0" />
+                        </HBox.margin>
+                     </Button>
+            
+                        <Button maxWidth="Infinity" onAction="#showClientsReport" prefHeight="42.0" prefWidth="118.0" styleClass="menu-button" text="تقرير العملاء" textFill="#2c3e50">
+                        <HBox.margin>
+                           <Insets left="10.0" right="10.0" />
+                        </HBox.margin>
+                     </Button>
+            
+                        <Button maxWidth="Infinity" onAction="#showHealthReport" prefHeight="35.0" prefWidth="118.0" styleClass="menu-button" text="تقرير صحي" textFill="#2c3e50">
+                        <padding>
+                           <Insets left="10.0" right="10.0" />
+                        </padding>
+                        <HBox.margin>
+                           <Insets left="10.0" right="10.0" />
+                        </HBox.margin>
+                     </Button>
+            
+                              <Button maxWidth="Infinity" onAction="#showFinancialReport" prefHeight="35.0" prefWidth="118.0" styleClass="menu-button" text="تقرير مالي" textFill="#2c3e50">
+                        <padding>
+                           <Insets left="10.0" right="10.0" />
+                        </padding>
+                        <HBox.margin>
+                           <Insets left="10.0" right="10.0" />
+                        </HBox.margin>
+                     </Button>
+                  </children>
+               </HBox>
+            </children></Pane>
+
+            <Button fx:id="btnExportPDF" onAction="#handleExportPDF" style="-fx-background-color:#E74C3C;-fx-text-fill:white;-fx-font-weight:bold;" text="طباعة / تصدير PDF">
+
+                <font>
+                    <Font size="14" />
+                </font>
+
+            </Button>
+
+        </HBox>
+
+    </top>
+
+    <!-- ===================== Center ===================== -->
+
+    <center>
+
+        <VBox fillWidth="true">
+
+            <!-- Filters -->
+
+            <HBox alignment="CENTER_LEFT" prefHeight="70" spacing="15" style="-fx-background-color:#ECF0F1;                          -fx-border-color:#BDC3C7;                          -fx-border-width:0 0 1 0;">
+
+                <padding>
+                    <Insets left="20" right="20" />
+                </padding>
+
+                <Label text="تحديد الفترة">
+
+                    <font>
+                        <Font name="System Bold" size="14" />
+                    </font>
+
+                </Label>
+
+                <ComboBox fx:id="cmbDateRange" onAction="#handleDateRangeChange" prefWidth="170" promptText="اختر المدة" />
+
+                <Label text="من" />
+
+                <DatePicker fx:id="dpStartDate" prefWidth="130" />
+
+                <Label text="إلى" />
+
+                <DatePicker fx:id="dpEndDate" prefWidth="130" />
+
+                <Button onAction="#applyDateFilter" style="-fx-background-color:#2980B9;                                -fx-text-fill:white;" text="تطبيق الفلتر" />
+
+            </HBox>
+
+            <!-- Content -->
+
+            <StackPane fx:id="contentArea" VBox.vgrow="ALWAYS">
+
+                <padding>
+                    <Insets bottom="20" left="20" right="20" top="20" />
+                </padding>
+
+                <!-- Financial Report -->
+
+                <VBox fx:id="viewFinancial" managed="true" spacing="20" visible="true">
+
+                    <Label text="التقرير المالي" textFill="#2C3E50">
+
+                        <font>
+                            <Font name="System Bold" size="22" />
+                        </font>
+
+                    </Label>
+
+                    <HBox spacing="20">
+
+                        <VBox alignment="CENTER" prefHeight="100" prefWidth="250" style="-fx-background-color:white;                                      -fx-background-radius:10;                                      -fx-border-radius:10;                                      -fx-border-color:#DCDDE1;">
+
+                            <Label text="إجمالي الإيرادات" />
+
+                            <Label fx:id="lblTotalRevenue" text="0.0" textFill="#2ECC71">
+
+                                <font>
+                                    <Font name="System Bold" size="24" />
+                                </font>
+
+                            </Label>
+
+                        </VBox>
+
+                        <VBox alignment="CENTER" prefHeight="100" prefWidth="250" style="-fx-background-color:white;                                      -fx-background-radius:10;                                      -fx-border-radius:10;                                      -fx-border-color:#DCDDE1;">
+
+                            <Label text="عدد الجلسات المدفوعة" />
+
+                            <Label fx:id="lblTotalSessions" text="0" textFill="#3498DB">
+
+                                <font>
+                                    <Font name="System Bold" size="24" />
+                                </font>
+
+                            </Label>
+
+                        </VBox>
+
+                    </HBox>
+
+                    <BarChart fx:id="revenueChart" title="الإيرادات حسب الفترة" VBox.vgrow="ALWAYS">
+
+                        <xAxis>
+                            <CategoryAxis fx:id="revenueXAxis" />
+                        </xAxis>
+
+                        <yAxis>
+                            <NumberAxis fx:id="revenueYAxis" />
+                        </yAxis>
+
+                    </BarChart>
+
+                </VBox>
+                <!-- ====================================================== -->
+                <!-- Clients Report -->
+                <!-- ====================================================== -->
+
+                <VBox fx:id="viewClients" managed="false" spacing="20" visible="false">
+
+                    <Label text="تقرير العملاء" textFill="#2C3E50">
+
+                        <font>
+                            <Font name="System Bold" size="22" />
+                        </font>
+
+                    </Label>
+
+                    <HBox prefHeight="260" spacing="20">
+
+                        <PieChart fx:id="genderPieChart" title="توزيع العملاء حسب الجنس" HBox.hgrow="ALWAYS" />
+
+                        <PieChart fx:id="agePieChart" title="توزيع العملاء حسب العمر" HBox.hgrow="ALWAYS" />
+
+                    </HBox>
+
+                    <TableView fx:id="tblClients" VBox.vgrow="ALWAYS">
+
+                        <columns>
+
+                            <TableColumn fx:id="colClientId" prefWidth="90" text="رقم العميل" />
+
+                            <TableColumn fx:id="colClientName" prefWidth="220" text="اسم العميل" />
+
+                            <TableColumn fx:id="colClientGender" prefWidth="100" text="الجنس" />
+
+                            <TableColumn fx:id="colClientAge" prefWidth="90" text="العمر" />
+
+                            <TableColumn fx:id="colClientPhone" prefWidth="160" text="رقم التواصل" />
+
+                            <TableColumn fx:id="colClientRegDate" prefWidth="170" text="تاريخ التسجيل" />
+
+                        </columns>
+
+                    </TableView>
+
+                </VBox>
+
+                <!-- ====================================================== -->
+                <!-- Health Report -->
+                <!-- ====================================================== -->
+
+                <VBox fx:id="viewHealth" managed="false" spacing="20" visible="false">
+
+                    <Label text="التقرير الصحي والأمراض" textFill="#2C3E50">
+
+                        <font>
+                            <Font name="System Bold" size="22" />
+                        </font>
+
+                    </Label>
+
+                    <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+                        <!-- الأمراض -->
+
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+
+                            <Label text="سجل الأمراض المزمنة">
+
+                                <font>
+                                    <Font name="System Bold" size="16" />
+                                </font>
+
+                            </Label>
+
+                            <TableView fx:id="tblDiseases" VBox.vgrow="ALWAYS">
+
+                                <columns>
+
+                                    <TableColumn fx:id="colDiseaseName" prefWidth="220" text="اسم المرض" />
+
+                                    <TableColumn fx:id="colDiseaseStatus" prefWidth="150" text="الحالة" />
+
+                                    <TableColumn fx:id="colDiseaseSeverity" prefWidth="150" text="درجة الشدة" />
+
+                                </columns>
+
+                            </TableView>
+
+                        </VBox>
+
+                        <!-- الحساسية -->
+
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+
+                            <Label text="سجل الحساسية">
+
+                                <font>
+                                    <Font name="System Bold" size="16" />
+                                </font>
+
+                            </Label>
+
+                            <TableView fx:id="tblAllergies" VBox.vgrow="ALWAYS">
+
+                                <columns>
+
+                                    <TableColumn fx:id="colAllergyName" prefWidth="220" text="نوع الحساسية" />
+
+                                    <TableColumn fx:id="colAllergySeverity" prefWidth="180" text="درجة الشدة" />
+
+                                </columns>
+
+                            </TableView>
+
+                        </VBox>
+
+                    </HBox>
+
+                </VBox>
+                <!-- ====================================================== -->
+                <!-- Operations Report -->
+                <!-- ====================================================== -->
+
+                <VBox fx:id="viewOperations" managed="false" spacing="20" visible="false">
+
+                    <Label text="تقرير العمليات وتقارير الجلسات" textFill="#2C3E50">
+
+                        <font>
+                            <Font name="System Bold" size="22" />
+                        </font>
+
+                    </Label>
+
+                    <TableView fx:id="tblSessionReports" VBox.vgrow="ALWAYS">
+
+                        <columns>
+
+                            <TableColumn fx:id="colRepSessionId" prefWidth="100" text="رقم الجلسة" />
+
+                            <TableColumn fx:id="colRepNutritionist" prefWidth="170" text="اسم الأخصائي" />
+
+                            <TableColumn fx:id="colRepDiagnosis" prefWidth="280" text="التشخيص" />
+
+                            <TableColumn fx:id="colRepCommitment" prefWidth="150" text="مستوى الالتزام" />
+
+                            <TableColumn fx:id="colRepNextAppt" prefWidth="180" text="الموعد القادم" />
+
+                        </columns>
+
+                    </TableView>
+
+                </VBox>
+
+                <!-- ====================================================== -->
+                <!-- Administrative Report -->
+                <!-- ====================================================== -->
+
+                <VBox fx:id="viewAdmin" managed="false" spacing="20" visible="false">
+
+                    <Label text="التقرير الإداري (نشاط النظام)" textFill="#2C3E50">
+
+                        <font>
+                            <Font name="System Bold" size="22" />
+                        </font>
+
+                    </Label>
+
+                    <TableView fx:id="tblSessionsAdmin" VBox.vgrow="ALWAYS">
+
+                        <columns>
+
+                            <TableColumn fx:id="colAdminSessionId" prefWidth="100" text="رقم الجلسة" />
+
+                            <TableColumn fx:id="colAdminClientId" prefWidth="120" text="رقم العميل" />
+
+                            <TableColumn fx:id="colAdminUploadTime" prefWidth="220" text="تاريخ الإنشاء" />
+
+                            <TableColumn fx:id="colAdminModTime" prefWidth="220" text="آخر تعديل" />
+
+                            <TableColumn fx:id="colAdminDuration" prefWidth="160" text="مدة الجلسة" />
+
+                        </columns>
+
+                    </TableView>
+
+                </VBox>
+
+            </StackPane>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

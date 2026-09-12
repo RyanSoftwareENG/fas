@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="520.0" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.ReportsListController">
+    <children>
+
+        <HBox alignment="CENTER_RIGHT" spacing="10.0" style="-fx-padding: 15 15 0 15;">
+            <children>
+                <Button fx:id="btnAdminReport" onAction="#handleOpenAdminReport" style="-fx-background-color: #0284c7; -fx-background-radius: 5; -fx-cursor: hand;" text="التقارير المالية والإدارية" textFill="WHITE">
+                    <font><Font name="Dubai Bold" size="13.0" /></font>
+                </Button>
+            </children>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0" style="-fx-padding: 15 15 5 15;">
+            <children>
+                <TextField fx:id="searchField" promptText="ابحث باسم العميل أو رقمه..." prefHeight="38.0" style="-fx-border-color: #7CB342; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #f8fafc;" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font name="Dubai Regular" size="14.0" />
+                    </font>
+                </TextField>
+
+                <ComboBox fx:id="comboSort" prefHeight="38.0" prefWidth="150.0" style="-fx-border-color: #7CB342; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #ffffff; -fx-font-family: 'Dubai Regular'; -fx-font-size: 13px;" />
+
+                <ToggleButton fx:id="btnReverse" mnemonicParsing="false" prefHeight="38.0" style="-fx-border-color: #7CB342; -fx-border-radius: 5; -fx-background-radius: 5; -fx-cursor: hand; -fx-font-family: 'Dubai Bold'; -fx-font-size: 13px;" text="عكس الترتيب" textFill="#C65D1E" />
+            </children>
+        </HBox>
+
+        <ScrollPane fx:id="reportsScroll" fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+            <content>
+                <VBox fx:id="reportsList" alignment="TOP_CENTER" spacing="10.0" style="-fx-padding: 10;" />
+            </content>
+        </ScrollPane>
+    </children>
+</VBox>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user_interface.offer.MealsCard">
+   <children>
+      <TextField fx:id="mealsName" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT">
+         <padding>
+            <Insets top="10.0" />
+         </padding></TextField>
+      <ComboBox fx:id="costLevel" accessibleText="%" layoutX="146.0" layoutY="91.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="126.0" promptText="مستوى التكلفة">
+         <padding>
+            <Insets top="10.0" />
+         </padding></ComboBox>
+      <Button layoutX="15.0" layoutY="142.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="27.0" prefWidth="77.0" text="حذف">
+         <padding>
+            <Insets top="10.0" />
+         </padding></Button>
+      <TextField fx:id="calories" layoutY="55.0" nodeOrientation="RIGHT_TO_LEFT">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </TextField>
+      <TextField fx:id="protein" layoutY="95.0" nodeOrientation="RIGHT_TO_LEFT">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </TextField>
+      <TextField fx:id="fat" layoutX="142.0" layoutY="55.0" nodeOrientation="RIGHT_TO_LEFT">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </TextField>
+      <TextField fx:id="carbohydrates" layoutX="142.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </TextField>
+      <CheckBox fx:id="availability" layoutX="162.0" layoutY="147.0" mnemonicParsing="false" text="متوفر" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</AnchorPane>

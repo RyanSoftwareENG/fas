@@ -1,0 +1,31 @@
+#logo {
+    /* استخدام التدرج اللوني في خاصية اللون */
+    -fx-background-color: linear-gradient(to bottom right, #8bb531, #c86c2d);
+
+    -fx-background-image: url("../img/img.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+
+    /* تصغير الصورة قليلاً لكي تظهر الخلفية الملونة حولها */
+    -fx-background-size: 70%;
+
+    /* جعل الحقل دائرياً */
+    -fx-background-radius: 75;
+    -fx-border-radius: 75;
+    -fx-border-color: #8bb531;
+    -fx-border-width: 1.5px;
+}
+
+/* باقي التنسيقات كما هي... */
+.sidebar-btn {
+    -fx-background-color: #8bb531;
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: #c86c2d !important;
+    -fx-text-fill: #ffffff !important;
+}
