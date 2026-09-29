@@ -221,30 +221,30 @@ public final class BackgroundRunner {
                             // ==================================================
                             // فحص السيرفر
                             // ==================================================
-
-                            if (!NetworkChecker
-                                    .isServerAvailable(
-                                            SERVER_URL
-                                    )) {
-
-                                if (!NetworkChecker
-                                        .isInternetAvailable()) {
-
-                                    throw new NetworkException(
-                                            "لا يوجد اتصال بالشبكة حالياً.\n\n"
-                                                    + "يرجى التحقق من اتصال الجهاز بالشبكة "
-                                                    + "ثم المحاولة مرة أخرى."
-                                    );
-
-                                } else {
-
-                                    throw new NetworkException(
-                                            "تعذر الوصول إلى خادم التطبيق.\n\n"
-                                                    + "قد يكون الخادم متوقفاً أو غير متاح مؤقتاً.\n"
-                                                    + "تأكد من تشغيل السيرفر ثم أعد المحاولة."
-                                    );
-                                }
-                            }
+//
+//                            if (!NetworkChecker
+//                                    .isServerAvailable(
+//                                            SERVER_URL
+//                                    )) {
+//
+//                                if (!NetworkChecker
+//                                        .isInternetAvailable()) {
+//
+//                                    throw new NetworkException(
+//                                            "لا يوجد اتصال بالشبكة حالياً.\n\n"
+//                                                    + "يرجى التحقق من اتصال الجهاز بالشبكة "
+//                                                    + "ثم المحاولة مرة أخرى."
+//                                    );
+//
+//                                } else {
+//
+//                                    throw new NetworkException(
+//                                            "تعذر الوصول إلى خادم التطبيق.\n\n"
+//                                                    + "قد يكون الخادم متوقفاً أو غير متاح مؤقتاً.\n"
+//                                                    + "تأكد من تشغيل السيرفر ثم أعد المحاولة."
+//                                    );
+//                                }
+//                            }
 
                             // ==================================================
                             // Security Guard المحلي

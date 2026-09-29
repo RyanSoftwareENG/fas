@@ -1,7 +1,6 @@
 package app;
 
 import api.ApiClientException;
-
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -18,12 +17,9 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import security.ClientSecurityGuard;
 import security.NetworkChecker;
-
 import settings.AppSettings;
-
 import user_interface.forminput.ClientView;
 import user_interface.forminput.MealsView;
 import user_interface.forminput.SessionView;
@@ -38,15 +34,16 @@ import java.util.Optional;
 /**
  * نقطة تشغيل تطبيق FAS.
  *
- * مسؤول عن:
+ * المسؤوليات:
  * - تشغيل JavaFX.
- * - فحص توفر الخادم.
- * - استعادة الجلسة المحلية.
- * - فتح شاشة تسجيل الدخول.
- * - فتح التطبيق الرئيسي.
+ * - فحص الخادم.
+ * - استعادة الجلسة.
+ * - عرض تسجيل الدخول.
+ * - تشغيل التطبيق الرئيسي.
  * - التنقل بين الواجهات.
+ * - إدارة Navbar.
  * - حفظ إعدادات النافذة.
- * - تحميل CSS العام للتطبيق.
+ * - تحميل CSS.
  */
 public class Main extends Application {
 
@@ -63,6 +60,12 @@ public class Main extends Application {
 
     private static String currentViewName =
             "Home";
+
+    // =========================================================
+    // NAVBAR
+    // =========================================================
+
+    private static Navbar navbar;
 
     // =========================================================
     // CSS
@@ -104,10 +107,17 @@ public class Main extends Application {
 
         mainStage.setResizable(true);
 
-        appSettings = new AppSettings();
+        appSettings =
+                new AppSettings();
 
+        /*
+         * بدء التشغيل بشاشة تحميل.
+         */
         showStartupLoading();
 
+        /*
+         * فحص الشبكة والجلسة.
+         */
         startSecurityBootstrap();
     }
 
@@ -142,9 +152,6 @@ public class Main extends Application {
         String stylesheet =
                 css.toExternalForm();
 
-        /*
-         * منع إضافة الملف أكثر من مرة.
-         */
         if (!scene.getStylesheets()
                 .contains(stylesheet)) {
 
@@ -170,25 +177,25 @@ public class Main extends Application {
                         // SERVER
                         // =================================================
 
-                        if (!NetworkChecker.isServerAvailable(
-                                SERVER_URL
-                        )) {
-
-                            if (!NetworkChecker
-                                    .isInternetAvailable()) {
-
-                                return StartupResult.networkError(
-                                        "لا يوجد اتصال بالشبكة."
-                                );
-                            }
-
-                            return StartupResult.networkError(
-                                    "تعذر الاتصال بالخادم."
-                            );
-                        }
+//                        if (!NetworkChecker.isServerAvailable(
+//                                SERVER_URL
+//                        )) {
+//
+//                            if (!NetworkChecker
+//                                    .isInternetAvailable()) {
+//
+//                                return StartupResult.networkError(
+//                                        "لا يوجد اتصال بالشبكة."
+//                                );
+//                            }
+//
+//                            return StartupResult.networkError(
+//                                    "تعذر الاتصال بالخادم."
+//                            );
+//                        }
 
                         // =================================================
-                        // SESSION / SECURITY
+                        // SECURITY
                         // =================================================
 
                         ClientSecurityGuard.SecurityCheckResult result =
@@ -381,10 +388,6 @@ public class Main extends Application {
                         exception
                 );
 
-        // =================================================
-        // API ERROR
-        // =================================================
-
         if (actualException
                 instanceof ApiClientException apiException) {
 
@@ -394,10 +397,6 @@ public class Main extends Application {
 
             return;
         }
-
-        // =================================================
-        // NETWORK
-        // =================================================
 
         showConnectionDialog(
                 "تعذر الاتصال بالخادم."
@@ -418,9 +417,9 @@ public class Main extends Application {
         String message =
                 exception.getServerMessage();
 
-        // =================================================
+        // =========================================================
         // 401
-        // =================================================
+        // =========================================================
 
         if (exception.isUnauthorized()) {
 
@@ -438,9 +437,9 @@ public class Main extends Application {
             return;
         }
 
-        // =================================================
+        // =========================================================
         // 403
-        // =================================================
+        // =========================================================
 
         if (exception.isForbidden()) {
 
@@ -532,9 +531,9 @@ public class Main extends Application {
             return;
         }
 
-        // =================================================
+        // =========================================================
         // OTHER
-        // =================================================
+        // =========================================================
 
         showAccessError(
                 "خطأ أثناء تشغيل التطبيق",
@@ -582,9 +581,27 @@ public class Main extends Application {
                 LoginView loginView =
                         new LoginView();
 
-                setWindowContent(
+                /*
+                 * مهم جدًا:
+                 *
+                 * لا نضع LoginView في Scene Root مباشرة.
+                 * نبقي root الرئيسي للتطبيق،
+                 * ونزيل Navbar منه.
+                 */
+                root.setTop(null);
+
+                root.setCenter(
                         loginView
                 );
+
+                currentViewName =
+                        "Login";
+
+                setRegionFill(
+                        loginView
+                );
+
+                showRootScene();
 
                 mainStage.setTitle(
                         "FAS - تسجيل الدخول"
@@ -628,6 +645,9 @@ public class Main extends Application {
                         || savedView.isBlank()
                         || "Subscription".equals(
                         savedView
+                )
+                        || "Login".equals(
+                        savedView
                 )) {
 
                     currentViewName =
@@ -651,8 +671,11 @@ public class Main extends Application {
                 // NAVBAR
                 // =====================================================
 
+                navbar =
+                        new Navbar();
+
                 root.setTop(
-                        new Navbar()
+                        navbar
                 );
 
                 // =====================================================
@@ -685,31 +708,14 @@ public class Main extends Application {
                 // SCENE
                 // =====================================================
 
+                showRootScene();
+
+                // =====================================================
+                // CSS
+                // =====================================================
+
                 Scene scene =
                         mainStage.getScene();
-
-                if (scene == null) {
-
-                    scene =
-                            new Scene(
-                                    root,
-                                    getInitialWidth(),
-                                    getInitialHeight()
-                            );
-
-                    mainStage.setScene(
-                            scene
-                    );
-                } else {
-
-                    scene.setRoot(
-                            root
-                    );
-                }
-
-                // =====================================================
-                // APPLY CSS
-                // =====================================================
 
                 applyStylesheet(
                         scene
@@ -761,20 +767,28 @@ public class Main extends Application {
                         height = 750;
                     }
 
-                    mainStage.setWidth(width);
+                    mainStage.setWidth(
+                            width
+                    );
 
-                    mainStage.setHeight(height);
+                    mainStage.setHeight(
+                            height
+                    );
 
                     if (!Double.isNaN(x)
                             && !Double.isInfinite(x)) {
 
-                        mainStage.setX(x);
+                        mainStage.setX(
+                                x
+                        );
                     }
 
                     if (!Double.isNaN(y)
                             && !Double.isInfinite(y)) {
 
-                        mainStage.setY(y);
+                        mainStage.setY(
+                                y
+                        );
                     }
                 }
 
@@ -823,54 +837,51 @@ public class Main extends Application {
 
             try {
 
-                Scene scene =
-                        mainStage.getScene();
+                /*
+                 * نتأكد أن Scene تستخدم root الرئيسي.
+                 */
+                showRootScene();
 
-                if (scene == null) {
-                    return;
-                }
+                // =====================================================
+                // LOGIN
+                // =====================================================
 
-                setRegionFill(
-                        newView
-                );
+                if ("Login".equals(
+                        viewName
+                )) {
 
-                if (scene.getRoot()
-                        == root) {
+                    /*
+                     * أهم إصلاح:
+                     *
+                     * إزالة Navbar بالكامل
+                     * عند فتح LoginView.
+                     */
+                    root.setTop(null);
 
                     root.setCenter(
                             newView
                     );
 
-                    currentViewName =
-                            normalizeViewName(
-                                    viewName
-                            );
-
                     /*
-                     * CSS already belongs to the Scene,
-                     * but applying it again is safe.
+                     * Login ليس View يتم حفظه
+                     * باعتباره آخر صفحة داخل النظام.
                      */
-                    applyStylesheet(
-                            scene
-                    );
-
-                    return;
-                }
-
-                if (newView
-                        instanceof Parent parent) {
-
-                    scene.setRoot(
-                            parent
-                    );
-
                     currentViewName =
-                            normalizeViewName(
-                                    viewName
-                            );
+                            "Login";
+
+                    setRegionFill(
+                            newView
+                    );
+
+                    Scene scene =
+                            mainStage.getScene();
 
                     applyStylesheet(
                             scene
+                    );
+
+                    mainStage.setTitle(
+                            "FAS - تسجيل الدخول"
                     );
 
                     mainStage.show();
@@ -878,9 +889,61 @@ public class Main extends Application {
                     return;
                 }
 
-                showStartupError(
-                        "تعذر عرض الواجهة المطلوبة."
+                // =====================================================
+                // INTERNAL APPLICATION VIEW
+                // =====================================================
+
+                /*
+                 * إذا لم يكن هناك Navbar،
+                 * نعيد إنشاءه.
+                 *
+                 * أما إذا كان موجودًا،
+                 * فنستخدم نفس الـNavbar.
+                 */
+                if (!(root.getTop()
+                        instanceof Navbar)) {
+
+                    navbar =
+                            new Navbar();
+
+                    root.setTop(
+                            navbar
+                    );
+                }
+
+                // =====================================================
+                // CENTER
+                // =====================================================
+
+                setRegionFill(
+                        newView
                 );
+
+                root.setCenter(
+                        newView
+                );
+
+                currentViewName =
+                        normalizeViewName(
+                                viewName
+                        );
+
+                // =====================================================
+                // CSS
+                // =====================================================
+
+                Scene scene =
+                        mainStage.getScene();
+
+                applyStylesheet(
+                        scene
+                );
+
+                mainStage.setTitle(
+                        "FAS - Food Assistant System"
+                );
+
+                mainStage.show();
 
             } catch (Exception e) {
 
@@ -1014,6 +1077,60 @@ public class Main extends Application {
     }
 
     // =========================================================
+    // SHOW ROOT SCENE
+    // =========================================================
+
+    private static void showRootScene() {
+
+        if (mainStage == null) {
+            return;
+        }
+
+        Scene scene =
+                mainStage.getScene();
+
+        // =====================================================
+        // CREATE SCENE
+        // =====================================================
+
+        if (scene == null) {
+
+            scene =
+                    new Scene(
+                            root,
+                            getInitialWidth(),
+                            getInitialHeight()
+                    );
+
+            mainStage.setScene(
+                    scene
+            );
+
+        } else {
+
+            /*
+             * إذا كان هناك LoginView أو شاشة البداية
+             * كـ Scene Root، نعيد root الرئيسي.
+             */
+            if (scene.getRoot()
+                    != root) {
+
+                scene.setRoot(
+                        root
+                );
+            }
+        }
+
+        // =====================================================
+        // CSS
+        // =====================================================
+
+        applyStylesheet(
+                scene
+        );
+    }
+
+    // =========================================================
     // STARTUP LOADING
     // =========================================================
 
@@ -1077,9 +1194,6 @@ public class Main extends Application {
                             400
                     );
 
-            /*
-             * حتى شاشة البداية تستفيد من الـCSS.
-             */
             applyStylesheet(
                     scene
             );
@@ -1299,59 +1413,6 @@ public class Main extends Application {
     }
 
     // =========================================================
-    // WINDOW CONTENT
-    // =========================================================
-
-    private static void setWindowContent(
-            Node node
-    ) {
-
-        if (node == null
-                || mainStage == null) {
-
-            return;
-        }
-
-        if (!(node instanceof Parent parent)) {
-            return;
-        }
-
-        setRegionFill(node);
-
-        Scene scene =
-                mainStage.getScene();
-
-        if (scene == null) {
-
-            scene =
-                    new Scene(
-                            parent,
-                            1200,
-                            750
-                    );
-
-            mainStage.setScene(
-                    scene
-            );
-
-        } else {
-
-            scene.setRoot(
-                    parent
-            );
-        }
-
-        /*
-         * مهم:
-         * عند تغيير root لا يضيع الـCSS،
-         * لكن نضمن وجوده دائمًا.
-         */
-        applyStylesheet(scene);
-
-        mainStage.show();
-    }
-
-    // =========================================================
     // STOP
     // =========================================================
 
@@ -1366,13 +1427,23 @@ public class Main extends Application {
 
         try {
 
+            /*
+             * لا نحفظ Login باعتباره آخر View.
+             */
+            String viewToSave =
+                    "Login".equals(
+                            currentViewName
+                    )
+                            ? "Home"
+                            : currentViewName;
+
             appSettings.saveSettings(
                     mainStage.getWidth(),
                     mainStage.getHeight(),
                     mainStage.getX(),
                     mainStage.getY(),
                     mainStage.isMaximized(),
-                    currentViewName
+                    viewToSave
             );
 
         } catch (Exception e) {
